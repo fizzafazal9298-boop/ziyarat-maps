@@ -193,6 +193,33 @@ nav.bottom button .ic{font-size:1.28rem; line-height:1}
 nav.bottom button.on{color:var(--emerald)}
 nav.bottom button.on .ic{color:var(--gold)}
 footer.small{max-width:960px; margin:0 auto; padding:0 14px 18px; color:var(--muted); font-size:.78rem; text-align:center}
+
+/* ---------- v3 additions ---------- */
+.dua-row,.surah-row{display:flex;align-items:center;gap:10px;width:100%;text-align:start;background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:12px;margin-bottom:8px;color:var(--ink);box-shadow:0 2px 8px rgba(28,36,32,.06)}
+.dua-row .art{margin-inline-start:auto;font-size:1.08rem;color:var(--emerald);white-space:nowrap}
+.dua-row small,.surah-row small{color:var(--muted);display:block;font-size:.8rem}
+.cathead{color:var(--emerald);margin:18px 0 8px;font-size:1.05rem}
+.surah-row .num{background:var(--emerald);color:#fff;border-radius:10px;min-width:34px;height:34px;display:flex;align-items:center;justify-content:center;font-weight:700;flex:0 0 auto}
+.surah-row .arn{margin-inline-start:auto;font-size:1.3rem;color:var(--emerald)}
+.rbar{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin:10px 0}
+.fbtn{background:var(--card);border:1px solid var(--line);border-radius:999px;padding:6px 13px;font-weight:700;color:var(--ink)}
+.fbtn.on{background:var(--gold);color:#231a00;border-color:var(--gold)}
+.rbody .arabic{font-size:var(--rfs,30px);line-height:2.1}
+.bismillah{text-align:center;font-size:calc(var(--rfs,30px)*1.02);color:var(--emerald);margin:8px 0 16px;direction:rtl}
+.ayah{font-size:var(--rfs,30px);line-height:2.15;direction:rtl;text-align:justify;margin:0 0 4px}
+.anum{color:#b8912a;font-size:.6em;white-space:nowrap}
+.ayah.hl{background:#fdf3d0;border-radius:8px}
+.ayah-en{direction:ltr;text-align:left;color:var(--muted);font-size:.95rem;line-height:1.55;margin:0 0 14px}
+.trbody{line-height:1.75;white-space:pre-line;margin-top:14px}
+.trbody.urdu{direction:rtl;text-align:right;line-height:2}
+.ig-card{display:flex;align-items:center;gap:12px;background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:12px;margin-bottom:10px;text-decoration:none;color:var(--ink);box-shadow:0 2px 8px rgba(28,36,32,.06)}
+.ig-ic{width:44px;height:44px;border-radius:12px;flex:0 0 auto;display:flex;align-items:center;justify-content:center;font-size:1.25rem;color:#fff;background:linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888)}
+.ig-tx{flex:1}.ig-tx small{display:block;color:var(--muted);margin-top:2px}
+.credit{display:flex;gap:10px;align-items:flex-start;padding:8px 0;border-bottom:1px solid var(--line);font-size:.85rem}
+.credit img{width:64px;height:44px;object-fit:cover;border-radius:8px;flex:0 0 auto}
+.credit a{color:var(--emerald)}
+.qres{display:block;width:100%;text-align:start;background:none;border:none;border-bottom:1px solid var(--line);padding:9px 2px;color:var(--ink)}
+.qres small{color:var(--muted);display:block;direction:rtl;font-size:1.02rem;margin-top:2px}
 </style>
 </head>
 <body>
@@ -246,6 +273,9 @@ footer.small{max-width:960px; margin:0 auto; padding:0 14px 18px; color:var(--mu
     <input class="search" id="siteSearch" type="search" data-i-ph="searchPlaceholder">
     <div class="chips" id="siteChips"></div>
     <div class="grid cities" id="siteGrid"></div>
+    <h2 class="sec-title" style="margin-top:22px" data-i="photoCredits"></h2>
+    <p class="sec-sub" data-i="creditsNote"></p>
+    <div id="creditsList"></div>
   </section>
 
   <!-- ================= DUAS ================= -->
@@ -255,7 +285,34 @@ footer.small{max-width:960px; margin:0 auto; padding:0 14px 18px; color:var(--mu
     <div id="duaList"></div>
   </section>
 
-  <!-- ================= TASBEEH ================= -->
+  
+  <!-- ================= QURAN (v3) ================= -->
+  <section class="view" id="view-quran">
+    <h2 class="sec-title" data-i="quranTitle"></h2>
+    <p class="sec-sub" data-i="quranSub"></p>
+    <input class="search" id="qSearch" type="search" data-i-ph="quranSearchPh">
+    <div id="qResults"></div>
+    <div id="surahList" style="margin-top:10px"></div>
+  </section>
+
+  <!-- ================= READER (v3) ================= -->
+  <section class="view" id="view-reader">
+    <button class="btn ghost" id="readerBack"></button>
+    <h2 class="sec-title" id="readerTitle"></h2>
+    <div class="urname" id="readerSub"></div>
+    <div class="rbar">
+      <button class="fbtn" id="fontMinus">A−</button>
+      <button class="fbtn" id="fontPlus">A+</button>
+      <span style="flex:1"></span>
+      <button class="fbtn" id="trEnBtn">English</button>
+      <button class="fbtn" id="trUrBtn">اردو</button>
+      <button class="fbtn" id="trOffBtn"></button>
+    </div>
+    <p class="note" id="readerNote" style="display:none"></p>
+    <div class="rbody" id="readerBody"></div>
+  </section>
+
+<!-- ================= TASBEEH ================= -->
   <section class="view" id="view-tasbeeh">
     <h2 class="sec-title" data-i="tasbeehTitle"></h2>
     <div class="tas-wrap">
@@ -328,7 +385,7 @@ footer.small{max-width:960px; margin:0 auto; padding:0 14px 18px; color:var(--mu
   </section>
 </main>
 
-<footer class="small">Ziyarat Maps — <span data-i="footerNote"></span></footer>
+<footer class="small">Ziyarat Maps v3 — <span data-i="footerNote"></span></footer>
 
 <!-- site detail sheet -->
 <div id="sheetWrap" role="dialog" aria-modal="true">
@@ -351,6 +408,7 @@ footer.small{max-width:960px; margin:0 auto; padding:0 14px 18px; color:var(--mu
 <nav class="bottom" id="bottomNav">
   <button data-nav="home"><span class="ic">🏠</span><span data-i="navHome"></span></button>
   <button data-nav="map"><span class="ic">🗺️</span><span data-i="navMap"></span></button>
+  <button data-nav="quran"><span class="ic">📖</span><span data-i="navQuran"></span></button>
   <button data-nav="duas"><span class="ic">🤲</span><span data-i="navDuas"></span></button>
   <button data-nav="tasbeeh"><span class="ic">📿</span><span data-i="navTasbeeh"></span></button>
   <button data-nav="qibla"><span class="ic">🧭</span><span data-i="navQibla"></span></button>
@@ -863,6 +921,251 @@ showView("home");
 if("serviceWorker" in navigator){
   window.addEventListener("load", ()=>{ navigator.serviceWorker.register("sw.js").catch(()=>{}); });
 }
+</script>
+<script>
+"use strict";
+/* =================== ZIYARAT MAPS v3 ADDITIONS ===================
+   Full Quran (quran.json), full Duas/Ziyarat/Taqibat library (duas.json),
+   Wikimedia Commons site photos with credits, Instagram video cards.   */
+
+/* ---------- extra UI strings ---------- */
+const X18N = {
+en:{navQuran:"Quran",quranTitle:"The Holy Quran",quranSub:"The complete Quran — 114 surahs, 6,236 verses (Uthmani script). English translation: Marmaduke Pickthall (1930, public domain), shown when you tap “English” in the reader. Urdu translation is not included: no public-domain Urdu translation could be verified.",quranSearchPh:"Search Arabic text, or a surah name…",photoCredits:"Photo credits",creditsNote:"Shrine and city photographs are from Wikimedia Commons and are used under their free licences:",urduComing:"Urdu translation coming soon — the full Arabic text above is complete.",arabicOnly:"Arabic only",backTxt:"← Back",matchingVerses:"Matching verses",loadingTxt:"Loading…",libCatZiyarat:"Ziyarat",libCatDua:"Duas",libCatTaqibat:"Ta'qibat — after the prayer",igNote:"All videos open on Instagram — nothing is downloaded or hosted in this app.",watchIG:"Watch on Instagram",duasSub:"Complete texts — full Arabic, with our own English translations (Urdu available for several; the rest are marked “coming”). No excerpts.",videosSub:"Ziyarat videos, live shrine coverage and recitations are published on the Instagram page @_ibnemurtaza. These cards open Instagram."},
+ur:{navQuran:"قرآن",quranTitle:"قرآنِ مجید",quranSub:"مکمل قرآن — 114 سورتیں، 6,236 آیات (رسمِ عثمانی)۔ انگریزی ترجمہ: محمد مارماڈیوک پکتھال (1930ء، پبلک ڈومین) — ریڈر میں “English” دبائیں۔ اردو ترجمہ شامل نہیں: کوئی پبلک ڈومین اردو ترجمہ تصدیق شدہ نہیں ملا۔",quranSearchPh:"عربی متن یا سورت کا نام تلاش کریں…",photoCredits:"تصاویر کے کریڈٹ",creditsNote:"حرم اور شہروں کی تصاویر Wikimedia Commons سے ان کے آزاد لائسنس کے تحت استعمال ہوئی ہیں:",urduComing:"اردو ترجمہ جلد آئے گا — اوپر مکمل عربی متن موجود ہے۔",arabicOnly:"صرف عربی",backTxt:"← واپس",matchingVerses:"ملتی ہوئی آیات",loadingTxt:"لوڈ ہو رہا ہے…",libCatZiyarat:"زیارات",libCatDua:"دعائیں",libCatTaqibat:"تعقیباتِ نماز",igNote:"تمام ویڈیوز انسٹاگرام پر کھلتی ہیں — اس ایپ میں کچھ ڈاؤن لوڈ یا ہوسٹ نہیں ہوتا۔",watchIG:"انسٹاگرام پر دیکھیں",duasSub:"مکمل متن — مکمل عربی، ہمارے اپنے انگریزی ترجمے کے ساتھ (کئی دعاؤں کا اردو ترجمہ بھی موجود ہے؛ باقی “جلد” نشان زد ہیں)۔ کوئی خلاصہ نہیں۔",videosSub:"زیارت کی ویڈیوز، حرم کی لائیو کوریج اور تلاوتیں انسٹاگرام پیج @_ibnemurtaza پر شائع ہوتی ہیں۔ یہ کارڈز انسٹاگرام کھولتے ہیں۔"},
+ar:{navQuran:"القرآن",quranTitle:"القرآن الكريم",quranSub:"القرآن كاملاً — 114 سورة، 6,236 آية (بالرسم العثماني). الترجمة الإنجليزية: محمد بيكثال (1930، ملكية عامة).",quranSearchPh:"ابحث في النص العربي أو اسم سورة…",photoCredits:"حقوق الصور",creditsNote:"صور الأضرحة والمدن من ويكيميديا كومنز وتُستخدم بموجب رخصها الحرة:",urduComing:"الترجمة الأردية قادمة قريباً — النص العربي الكامل أعلاه.",arabicOnly:"العربية فقط",backTxt:"عودة →",matchingVerses:"آيات مطابقة",loadingTxt:"جارٍ التحميل…",libCatZiyarat:"الزيارات",libCatDua:"الأدعية",libCatTaqibat:"تعقيبات الصلاة",igNote:"جميع مقاطع الفيديو تُفتح على إنستغرام — لا يُنزَّل أو يُستضاف شيء في هذا التطبيق.",watchIG:"شاهد على إنستغرام",duasSub:"النصوص كاملة بالعربية مع ترجمتنا الإنجليزية الخاصة. لا مقتطفات.",videosSub:"تُنشر فيديوهات الزيارة والتغطية المباشرة للأضرحة على صفحة إنستغرام @_ibnemurtaza. هذه البطاقات تفتح إنستغرام."},
+fa:{navQuran:"قرآن",quranTitle:"قرآن کریم",quranSub:"قرآن کامل — 114 سوره، 6,236 آیه (رسم عثمانی). ترجمهٔ انگلیسی: محمد پیکتال (1930، مالکیت عمومی).",quranSearchPh:"جستجو در متن عربی یا نام سوره…",photoCredits:"اعتبار عکس‌ها",creditsNote:"عکس‌های حرم‌ها و شهرها از ویکی‌مدیا کامنز و تحت مجوزهای آزاد آن‌ها استفاده شده‌اند:",urduComing:"ترجمهٔ اردو به‌زودی — متن کامل عربی در بالا موجود است.",arabicOnly:"فقط عربی",backTxt:"بازگشت →",matchingVerses:"آیات مطابق",loadingTxt:"در حال بارگذاری…",libCatZiyarat:"زیارات",libCatDua:"دعاها",libCatTaqibat:"تعقیبات نماز",igNote:"همهٔ ویدیوها در اینستاگرام باز می‌شوند — چیزی در این برنامه دانلود یا میزبانی نمی‌شود.",watchIG:"تماشا در اینستاگرام",duasSub:"متن‌های کامل عربی با ترجمهٔ انگلیسی خودمان. بدون گزیده.",videosSub:"ویدیوهای زیارت و پوشش زندهٔ حرم‌ها در صفحهٔ اینستاگرام @_ibnemurtaza منتشر می‌شوند. این کارت‌ها اینستاگرام را باز می‌کنند."}
+};
+for(const L in X18N){ if(I18N[L]) Object.assign(I18N[L], X18N[L]); }
+
+function esc(s){ return String(s==null?"":s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;"); }
+
+/* ---------- site photos (Wikimedia Commons) ---------- */
+const SITE_PHOTO = {"imam-ali-shrine": "images/imam-ali-shrine.jpg", "wadi-us-salam": "images/wadi-us-salam.jpg", "masjid-hanana": "images/masjid-hanana.jpg", "kufa-mosque": "images/kufa-mosque.jpg", "masjid-sahla": "images/masjid-sahla.jpg", "imam-hussain-shrine": "images/imam-hussain-shrine.jpg", "hazrat-abbas-shrine": "images/hazrat-abbas-shrine.jpg", "bain-ul-haramain": "images/bain-ul-haramain.jpg", "tilla-zainabia": "images/tilla-zainabia.jpg", "maqam-hurr": "images/maqam-hurr.jpg", "kadhimayn-shrine": "images/kadhimayn-shrine.jpg", "askari-shrine": "images/askari-shrine.jpg", "maytham-shrine": "images/maytham-shrine.jpg", "salman-farsi": "images/salman-farsi.jpg", "taq-kasra": "images/taq-kasra.jpg", "sardab-samarra": "images/sardab-samarra.jpg", "malwiya-minaret": "images/malwiya-minaret.jpg"};
+const CREDITS = [{"file": "images/imam-ali-shrine.jpg", "title": "Shrine of Imam Ali Najaf August 2023.jpg", "author": "Goudarz.memar", "license": "CC BY-SA 4.0", "license_url": "https://creativecommons.org/licenses/by-sa/4.0", "source": "https://commons.wikimedia.org/wiki/File:Shrine_of_Imam_Ali_Najaf_August_2023.jpg"}, {"file": "images/wadi-us-salam.jpg", "title": "Wadi Al-Salam.jpg", "author": "Wurzelgnohm", "license": "CC0", "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en", "source": "https://commons.wikimedia.org/wiki/File:Wadi_Al-Salam.jpg"}, {"file": "images/masjid-hanana.jpg", "title": "Hannanah, Najaf, Iraq - panoramio.jpg", "author": "‫سید محمود جوادی‬‎", "license": "CC BY 3.0", "license_url": "https://creativecommons.org/licenses/by/3.0", "source": "https://commons.wikimedia.org/wiki/File:Hannanah,_Najaf,_Iraq_-_panoramio.jpg"}, {"file": "images/kufa-mosque.jpg", "title": "Kufa Mosque2015.jpg", "author": "ن.عامری", "license": "CC BY-SA 4.0", "license_url": "https://creativecommons.org/licenses/by-sa/4.0", "source": "https://commons.wikimedia.org/wiki/File:Kufa_Mosque2015.jpg"}, {"file": "images/masjid-sahla.jpg", "title": "Kufa, Iraq - panoramio (1).jpg", "author": "‫سید محمود جوادی‬‎", "license": "CC BY 3.0", "license_url": "https://creativecommons.org/licenses/by/3.0", "source": "https://commons.wikimedia.org/wiki/File:Kufa,_Iraq_-_panoramio_(1).jpg"}, {"file": "images/imam-hussain-shrine.jpg", "title": "Imam Husayn Shrine (karbala).jpg", "author": "Ali Majid Abbood", "license": "CC BY-SA 4.0", "license_url": "https://creativecommons.org/licenses/by-sa/4.0", "source": "https://commons.wikimedia.org/wiki/File:Imam_Husayn_Shrine_(karbala).jpg"}, {"file": "images/hazrat-abbas-shrine.jpg", "title": "Abbas Shrine 1 (banner).jpg", "author": "", "license": "CC BY 2.0", "license_url": "https://creativecommons.org/licenses/by/2.0", "source": "https://commons.wikimedia.org/wiki/File:Abbas_Shrine_1_(banner).jpg"}, {"file": "images/bain-ul-haramain.jpg", "title": "Bayn al-Haramayn during the days of Arba'een 015.jpg", "author": "Alireza Vasigh Ansari", "license": "CC BY 4.0", "license_url": "https://creativecommons.org/licenses/by/4.0", "source": "https://commons.wikimedia.org/wiki/File:Bayn_al-Haramayn_during_the_days_of_Arba%27een_015.jpg"}, {"file": "images/tilla-zainabia.jpg", "title": "تل زينبيه كربلا - panoramio.jpg", "author": "kazem fattahi", "license": "CC BY 3.0", "license_url": "https://creativecommons.org/licenses/by/3.0", "source": "https://commons.wikimedia.org/wiki/File:%D8%AA%D9%84_%D8%B2%D9%8A%D9%86%D8%A8%D9%8A%D9%87_%D9%83%D8%B1%D8%A8%D9%84%D8%A7_-_panoramio.jpg"}, {"file": "images/maqam-hurr.jpg", "title": "Al-Hurr ibn Yazid(2).jpg", "author": "ن.عامری", "license": "CC BY-SA 4.0", "license_url": "https://creativecommons.org/licenses/by-sa/4.0", "source": "https://commons.wikimedia.org/wiki/File:Al-Hurr_ibn_Yazid(2).jpg"}, {"file": "images/kadhimayn-shrine.jpg", "title": "Al-Khadhumain shrine in baghdad.jpg", "author": "Jafaralshamma at English Wikipedia", "license": "CC BY-SA 3.0", "license_url": "https://creativecommons.org/licenses/by-sa/3.0", "source": "https://commons.wikimedia.org/wiki/File:Al-Khadhumain_shrine_in_baghdad.jpg"}, {"file": "images/askari-shrine.jpg", "title": "Al-Askari Mosque 2013.jpg", "author": "Zygoptera", "license": "CC0", "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en", "source": "https://commons.wikimedia.org/wiki/File:Al-Askari_Mosque_2013.jpg"}, {"file": "images/maytham-shrine.jpg", "title": "مسجد میثم تمار در کوفه - panoramio.jpg", "author": "‫سید محمود جوادی‬‎", "license": "CC BY 3.0", "license_url": "https://creativecommons.org/licenses/by/3.0", "source": "https://commons.wikimedia.org/wiki/File:%D9%85%D8%B3%D8%AC%D8%AF_%D9%85%DB%8C%D8%AB%D9%85_%D8%AA%D9%85%D8%A7%D8%B1_%D8%AF%D8%B1_%DA%A9%D9%88%D9%81%D9%87_-_panoramio.jpg"}, {"file": "images/salman-farsi.jpg", "title": "Tomb of Salman Al Farsi.jpg", "author": "David Stanley", "license": "CC BY 2.0", "license_url": "https://creativecommons.org/licenses/by/2.0", "source": "https://commons.wikimedia.org/wiki/File:Tomb_of_Salman_Al_Farsi.jpg"}, {"file": "images/taq-kasra.jpg", "title": "001125-TaqKasra-Iraq-IMG 7914-2.jpg", "author": "Safa.daneshvar", "license": "CC BY-SA 4.0", "license_url": "https://creativecommons.org/licenses/by-sa/4.0", "source": "https://commons.wikimedia.org/wiki/File:001125-TaqKasra-Iraq-IMG_7914-2.jpg"}, {"file": "images/sardab-samarra.jpg", "title": "Al-Askari Mosque 2013.jpg", "author": "Zygoptera", "license": "CC0", "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en", "source": "https://commons.wikimedia.org/wiki/File:Al-Askari_Mosque_2013.jpg"}, {"file": "images/malwiya-minaret.jpg", "title": "مأذنة الملوية في سامراء Malwiya Minaret Samarra.jpg", "author": "حكمت العياشي", "license": "CC BY-SA 4.0", "license_url": "https://creativecommons.org/licenses/by-sa/4.0", "source": "https://commons.wikimedia.org/wiki/File:%D9%85%D8%A3%D8%B0%D9%86%D8%A9_%D8%A7%D9%84%D9%85%D9%84%D9%88%D9%8A%D8%A9_%D9%81%D9%8A_%D8%B3%D8%A7%D9%85%D8%B1%D8%A7%D8%A1_Malwiya_Minaret_Samarra.jpg"}, {"file": "images/city-Najaf.jpg", "title": "Shrine of Imam Ali Najaf August 2023.jpg", "author": "Goudarz.memar", "license": "CC BY-SA 4.0", "license_url": "https://creativecommons.org/licenses/by-sa/4.0", "source": "https://commons.wikimedia.org/wiki/File:Shrine_of_Imam_Ali_Najaf_August_2023.jpg"}, {"file": "images/city-Kufa.jpg", "title": "Kufa Mosque2015.jpg", "author": "ن.عامری", "license": "CC BY-SA 4.0", "license_url": "https://creativecommons.org/licenses/by-sa/4.0", "source": "https://commons.wikimedia.org/wiki/File:Kufa_Mosque2015.jpg"}, {"file": "images/city-Karbala.jpg", "title": "001123-ImamHosseinShrine-BetweenTheHolyShrines-Karbala-IMG 7720-2.jpg", "author": "Safa.daneshvar", "license": "CC BY-SA 4.0", "license_url": "https://creativecommons.org/licenses/by-sa/4.0", "source": "https://commons.wikimedia.org/wiki/File:001123-ImamHosseinShrine-BetweenTheHolyShrines-Karbala-IMG_7720-2.jpg"}, {"file": "images/city-Baghdad.jpg", "title": "Al-Khadhumain shrine in baghdad.jpg", "author": "Jafaralshamma at English Wikipedia", "license": "CC BY-SA 3.0", "license_url": "https://creativecommons.org/licenses/by-sa/3.0", "source": "https://commons.wikimedia.org/wiki/File:Al-Khadhumain_shrine_in_baghdad.jpg"}, {"file": "images/city-Samarra.jpg", "title": "Samarra, Iraq (25270211056).jpg", "author": "Chris Hoare", "license": "CC BY 2.0", "license_url": "https://creativecommons.org/licenses/by/2.0", "source": "https://commons.wikimedia.org/wiki/File:Samarra,_Iraq_(25270211056).jpg"}];
+function photoFor(s){ return SITE_PHOTO[s.id] || ("images/city-" + s.city + ".jpg"); }
+
+/* ---------- overrides: tools / sites / sheet / videos ---------- */
+function renderTools(){
+  const tools = [
+    {v:"quran", ic:"📖", k:"navQuran"},
+    {v:"map", ic:"🗺️", k:"navMap"}, {v:"sites", ic:"📍", k:"sitesTitle"},
+    {v:"duas", ic:"🤲", k:"navDuas"}, {v:"tasbeeh", ic:"📿", k:"navTasbeeh"},
+    {v:"qibla", ic:"🧭", k:"navQibla"}, {v:"prayer", ic:"🕌", k:"navPrayer"},
+    {v:"videos", ic:"🎥", k:"videosTitle"}
+  ];
+  $("#toolGrid").innerHTML = tools.map(x =>
+    `<button class="tool-card" data-goto="${x.v}"><span class="ic">${x.ic}</span><b>${t(x.k)}</b></button>`).join("");
+}
+function renderSites(){
+  const q = siteQuery.trim().toLowerCase();
+  const list = SITES.filter(s =>
+    (siteCity === "All" || s.city === siteCity) &&
+    (!q || s.name.toLowerCase().includes(q) || s.urdu.includes(siteQuery) || s.city.toLowerCase().includes(q)));
+  $("#sitesCount").textContent = list.length + " / " + SITES.length + " " + t("sitesCount");
+  $("#siteGrid").innerHTML = list.map(s =>
+    `<button class="site-card" data-site="${s.id}">
+       <img src="${photoFor(s)}" alt="${esc(s.name)}" loading="lazy" onerror="this.onerror=null;this.src=IMG['${s.city}']">
+       <span class="sc"><b>${s.name}</b><span class="ur">${s.urdu}</span>
+       <span class="meta">${s.city} · ${s.cat}</span></span>
+     </button>`).join("");
+  $$("#siteGrid .site-card").forEach(b => b.addEventListener("click", ()=>{
+    openSheet(SITES.find(s => s.id === b.dataset.site));
+  }));
+}
+function openSheet(s){
+  if(!s) return;
+  const im = $("#sheetImg");
+  im.onerror = ()=>{ im.onerror = null; im.src = IMG[s.city]; };
+  im.src = photoFor(s);
+  im.alt = s.name;
+  $("#sheetCat").textContent = s.city + " · " + s.cat;
+  $("#sheetName").textContent = s.name;
+  $("#sheetUr").textContent = s.urdu;
+  $("#sheetDesc").textContent = siteDesc(s);
+  $("#sheetDescNote").style.display = (LANG === "ar" || LANG === "fa") ? "block" : "none";
+  $("#sheetCoords").textContent = s.lat.toFixed(4) + ", " + s.lng.toFixed(4);
+  $("#sheetDir").href = "https://www.google.com/maps/dir/?api=1&destination=" + s.lat + "," + s.lng;
+  $("#sheetWrap").classList.add("on");
+  document.body.style.overflow = "hidden";
+}
+const IG_CARDS = [
+ {en:"Ibn-e-Murtaza — Instagram page", ur:"ابنِ مرتضیٰ — انسٹاگرام پیج", href:"https://www.instagram.com/_ibnemurtaza"},
+ {en:"Reels — short ziyarat videos", ur:"ریلز — مختصر زیارت ویڈیوز", href:"https://www.instagram.com/_ibnemurtaza/reels/"},
+ {en:"Live & recorded from the holy shrines", ur:"مقدس حرموں سے لائیو و ریکارڈڈ", href:"https://www.instagram.com/_ibnemurtaza/reels/"},
+ {en:"Duas & ziyarat recitations", ur:"دعاؤں اور زیارات کی تلاوت", href:"https://www.instagram.com/_ibnemurtaza/reels/"},
+ {en:"The Arbaeen walk — Najaf to Karbala", ur:"اربعین واک — نجف تا کربلا", href:"https://www.instagram.com/_ibnemurtaza/reels/"}
+];
+function renderVideos(){
+  $("#vidList").innerHTML =
+    IG_CARDS.map(v =>
+     `<a class="ig-card" target="_blank" rel="noopener" href="${v.href}">
+        <span class="ig-ic">📷</span>
+        <span class="ig-tx"><b>${esc(LANG === "ur" ? v.ur : v.en)}</b><small>@_ibnemurtaza • ${t("watchIG")}</small></span>
+        <span class="play">›</span>
+      </a>`).join("") +
+    `<p class="note">${t("igNote")}</p>`;
+}
+
+/* ---------- photo credits ---------- */
+function renderCredits(){
+  const el = $("#creditsList");
+  if(!el) return;
+  el.innerHTML = CREDITS.map(c =>
+   `<div class="credit">
+      <img src="${c.file}" alt="" loading="lazy">
+      <div><b>${esc(c.title)}</b>${c.author ? " — " + esc(c.author) : ""}<br>
+      <a href="${c.license_url}" target="_blank" rel="noopener">${esc(c.license)}</a> ·
+      <a href="${c.source}" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+    </div>`).join("");
+}
+
+/* ---------- full library (duas.json) ---------- */
+let DUAS3 = null, duasPromise = null;
+function loadDuas(){
+  if(duasPromise) return duasPromise;
+  duasPromise = fetch("duas.json").then(r => r.json()).then(d => { DUAS3 = d.entries; renderDuas(); })
+    .catch(()=>{ const el = $("#duaList"); if(el) el.innerHTML = `<p class="note">${t("loadingTxt")} ✕</p>`; });
+  return duasPromise;
+}
+function renderDuas(){
+  const el = $("#duaList");
+  if(!el) return;
+  if(!DUAS3){
+    const vis = $("#view-duas").classList.contains("on");
+    el.innerHTML = `<p class="note">${vis ? t("loadingTxt") : "…"}</p>`;
+    if(vis) loadDuas();
+    return;
+  }
+  const cats = [["ziyarat","libCatZiyarat"],["dua","libCatDua"],["taqibat","libCatTaqibat"]];
+  el.innerHTML = cats.map(([cat,key]) =>
+    `<h3 class="cathead">${t(key)}</h3>` +
+    DUAS3.filter(e => e.category === cat).map(e =>
+     `<button class="dua-row" data-entry="${e.id}">
+        <span><b>${esc(LANG === "ur" && e.title_ur ? e.title_ur : e.title_en)}</b>
+        <small>${e.translation_ur ? "العربية • English • اردو" : "العربية • English"}</small></span>
+        <span class="art">${esc(e.title_ar)}</span>
+      </button>`).join("")
+  ).join("");
+  $$("#duaList .dua-row").forEach(b => b.addEventListener("click", ()=> openDua(b.dataset.entry)));
+}
+
+/* ---------- reader (shared by Quran & library) ---------- */
+const reader = {kind:null, dua:null, surah:null, font:30, tr:"en", hl:0, back:"duas"};
+function openDua(id){
+  const e = (DUAS3 || []).find(x => x.id === id);
+  if(!e) return;
+  reader.kind = "dua"; reader.dua = e; reader.back = "duas"; reader.tr = "en";
+  renderReader(); showView("reader");
+}
+function openSurah(n, hl){
+  if(!QURAN) return;
+  reader.kind = "quran"; reader.surah = QURAN.surahs[n-1]; reader.hl = hl || 0; reader.back = "quran"; reader.tr = "en";
+  renderReader(); showView("reader");
+  if(reader.hl){
+    const target = document.getElementById("ayah-" + reader.hl);
+    if(target) setTimeout(()=> target.scrollIntoView({block:"center"}), 80);
+  }
+}
+function renderReader(){
+  const body = $("#readerBody");
+  body.style.setProperty("--rfs", reader.font + "px");
+  $("#trEnBtn").classList.toggle("on", reader.tr === "en");
+  $("#trUrBtn").classList.toggle("on", reader.tr === "ur");
+  $("#trOffBtn").classList.toggle("on", reader.tr === "off");
+  const note = $("#readerNote");
+  if(reader.kind === "dua"){
+    const e = reader.dua;
+    $("#readerTitle").textContent = LANG === "ur" && e.title_ur ? e.title_ur : e.title_en;
+    $("#readerSub").textContent = e.title_ar;
+    $("#trUrBtn").style.display = "";
+    if(e.note_en){ note.style.display = "block"; note.textContent = e.note_en; } else note.style.display = "none";
+    let trHtml = "";
+    if(reader.tr === "en") trHtml = `<div class="trbody">${esc(e.translation_en)}</div>`;
+    else if(reader.tr === "ur") trHtml = e.translation_ur
+      ? `<div class="trbody urdu">${esc(e.translation_ur)}</div>`
+      : `<p class="note">${t("urduComing")}</p>`;
+    body.innerHTML = `<div class="arabic">${esc(e.arabic)}</div>` + trHtml;
+  } else if(reader.kind === "quran"){
+    const s = reader.surah;
+    $("#readerTitle").textContent = s.n + ". " + s.tr + " — " + s.en;
+    $("#readerSub").textContent = s.ar + " · " + s.type + " · " + s.count + " " + "آيات";
+    $("#trUrBtn").style.display = "none";
+    note.style.display = "block";
+    note.textContent = "English: Pickthall translation (public domain) — toggle with the English button.";
+    let html = "";
+    if(s.n !== 1 && s.n !== 9) html += `<div class="bismillah">بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</div>`;
+    html += s.a.map((a,i) =>
+      `<p class="ayah${reader.hl === i+1 ? " hl" : ""}" id="ayah-${i+1}">${esc(a)} <span class="anum">﴿${i+1}﴾</span></p>` +
+      (reader.tr === "en" ? `<p class="ayah-en">${i+1}. ${esc(s.e[i])}</p>` : "")
+    ).join("");
+    body.innerHTML = html;
+  }
+  $("#trOffBtn").textContent = t("arabicOnly");
+  $("#readerBack").textContent = t("backTxt");
+}
+$("#readerBack").addEventListener("click", ()=> showView(reader.back || "home"));
+$("#fontMinus").addEventListener("click", ()=>{ reader.font = Math.max(20, reader.font - 2); renderReader(); });
+$("#fontPlus").addEventListener("click", ()=>{ reader.font = Math.min(48, reader.font + 2); renderReader(); });
+$("#trEnBtn").addEventListener("click", ()=>{ reader.tr = "en"; renderReader(); });
+$("#trUrBtn").addEventListener("click", ()=>{ reader.tr = "ur"; renderReader(); });
+$("#trOffBtn").addEventListener("click", ()=>{ reader.tr = "off"; renderReader(); });
+
+/* ---------- Quran (quran.json) ---------- */
+let QURAN = null, quranLoading = false;
+function ensureQuran(){
+  if(QURAN || quranLoading) return;
+  quranLoading = true;
+  fetch("quran.json").then(r => r.json()).then(d => { QURAN = d; quranLoading = false; renderSurahList($("#qSearch").value || ""); })
+    .catch(()=>{ quranLoading = false; const el = $("#surahList"); if(el) el.innerHTML = `<p class="note">${t("loadingTxt")} ✕</p>`; });
+}
+document.addEventListener("click", e => {
+  if(e.target.closest('[data-nav="quran"],[data-goto="quran"]')) ensureQuran();
+  if(e.target.closest('[data-nav="duas"],[data-goto="duas"]')) setTimeout(renderDuas, 0);
+});
+function renderSurahList(q){
+  const el = $("#surahList");
+  if(!el) return;
+  if(!QURAN){ el.innerHTML = `<p class="note">${t("loadingTxt")}</p>`; return; }
+  const needle = (q || "").trim().toLowerCase();
+  const list = QURAN.surahs.filter(s =>
+    !needle || s.tr.toLowerCase().includes(needle) || s.en.toLowerCase().includes(needle) ||
+    s.ar.includes(q.trim()) || String(s.n) === needle);
+  el.innerHTML = list.map(s =>
+   `<button class="surah-row" data-n="${s.n}">
+      <span class="num">${s.n}</span>
+      <span><b>${esc(s.tr)}</b><small>${esc(s.en)} · ${s.type} · ${s.count}</small></span>
+      <span class="arn">${esc(s.ar)}</span>
+    </button>`).join("");
+  $$("#surahList .surah-row").forEach(b => b.addEventListener("click", ()=> openSurah(+b.dataset.n, 0)));
+}
+function normAr(s){
+  return String(s || "").replace(/[ً-ٰٟـ]/g, "").replace(/[إأآٱٲٳ]/g, "ا").replace(/ى/g, "ي").replace(/ة/g, "ه");
+}
+function runAyahSearch(q){
+  const box = $("#qResults");
+  if(!box) return;
+  const needle = normAr(q).trim();
+  if(!QURAN || needle.replace(/\s/g, "").length < 3){ box.innerHTML = ""; return; }
+  const hits = [];
+  for(const s of QURAN.surahs){
+    for(let i = 0; i < s.a.length; i++){
+      if(normAr(s.a[i]).includes(needle)){
+        hits.push({n:s.n, tr:s.tr, ayah:i+1, text:s.a[i]});
+        if(hits.length >= 40) break;
+      }
+    }
+    if(hits.length >= 40) break;
+  }
+  box.innerHTML = (hits.length ? `<h3 class="cathead">${t("matchingVerses")} (${hits.length})</h3>` : "") +
+    hits.map(h =>
+     `<button class="qres" data-n="${h.n}" data-a="${h.ayah}"><b>${esc(h.tr)} — ${h.n}:${h.ayah}</b><small>${esc(h.text.slice(0, 110))}…</small></button>`).join("");
+  $$("#qResults .qres").forEach(b => b.addEventListener("click", ()=> openSurah(+b.dataset.n, +b.dataset.a)));
+}
+$("#qSearch").addEventListener("input", e => { renderSurahList(e.target.value); runAyahSearch(e.target.value); });
+
+/* ---------- boot v3 ---------- */
+renderCredits();
+applyLang();
 </script>
 </body>
 </html>

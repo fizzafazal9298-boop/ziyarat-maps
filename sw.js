@@ -8,8 +8,9 @@
  *  - APIs (Aladhan) and everything else: network-first with cache fallback
  *    for navigations only.
  */
-const CACHE = "ziyarat-maps-v2-r1";
-const SHELL = ["./", "./index.html", "./manifest.json", "./icon.svg"];
+const CACHE = "ziyarat-maps-v3-r1";
+const IMGCACHE = "ziyarat-maps-v3-images";
+const SHELL = ["./", "./index.html", "./manifest.json", "./icon.svg", "./quran.json", "./duas.json"];
 
 self.addEventListener("install", event => {
   event.waitUntil(
@@ -23,7 +24,7 @@ self.addEventListener("install", event => {
 self.addEventListener("activate", event => {
   event.waitUntil(
     caches.keys()
-      .then(keys => Promise.all(keys.filter(k => k !== CACHE).map(k => caches.delete(k))))
+      .then(keys => Promise.all(keys.filter(k => k !== CACHE && k !== IMGCACHE).map(k => caches.delete(k))))
       .then(() => self.clients.claim())
   );
 });
@@ -48,6 +49,18 @@ self.addEventListener("fetch", event => {
         caches.open(CACHE).then(c => c.put(req, copy)).catch(() => {});
         return res;
       }))
+    );
+    return;
+  }
+
+  // Site photos: cache-first in their own runtime cache.
+  if (url.origin === self.location.origin && url.pathname.includes("/images/")) {
+    event.respondWith(
+      caches.open(IMGCACHE).then(cache => cache.match(req).then(hit => hit || fetch(req).then(res => {
+        const copy = res.clone();
+        cache.put(req, copy).catch(() => {});
+        return res;
+      })))
     );
     return;
   }
