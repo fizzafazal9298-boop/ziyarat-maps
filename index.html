@@ -231,6 +231,32 @@ footer.small{max-width:960px; margin:0 auto; padding:0 14px 18px; color:var(--mu
 #zmUpdateBanner .zmub-btn{background:#c9a227;color:#10281f;border:0;border-radius:8px;
   padding:8px 14px;font-weight:700;cursor:pointer;white-space:nowrap}
 </style>
+<style>
+/* ================= v5 additions ================= */
+.book-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:6px}
+@media(max-width:560px){.book-grid{grid-template-columns:1fr}}
+.book-card{display:flex;gap:12px;align-items:flex-start;text-align:start;width:100%;background:#fff;border:1px solid #e7dfc9;border-radius:16px;padding:14px;cursor:pointer;box-shadow:0 2px 8px rgba(60,50,10,.06)}
+.book-card .ic{font-size:26px;line-height:1.2}
+.book-card b{display:block;font-size:16px;color:var(--ink,#1d2b23)}
+.book-card small{display:block;color:#7a7261;font-size:12.5px;margin-top:3px;line-height:1.45}
+.bktabs{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}
+.bktabs .chip.on{background:var(--gold,#b8912f);color:#fff;border-color:var(--gold,#b8912f)}
+.near-row{display:flex;justify-content:space-between;align-items:center;gap:10px;width:100%;background:#faf7ee;border:1px solid #ece4cd;border-radius:12px;padding:9px 12px;margin-top:6px;cursor:pointer;text-align:start}
+.near-row b{font-size:14px}
+.near-row .dist{font-weight:700;color:var(--gold,#b8912f);white-space:nowrap;font-size:13px}
+.mstoggle{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0 4px}
+.msbtn{flex:1;min-width:150px;padding:10px 12px;border-radius:12px;border:1.5px solid #ddd3b8;background:#fff;font-weight:700;cursor:pointer;font-size:13.5px}
+.msbtn.on{background:var(--gold,#b8912f);border-color:var(--gold,#b8912f);color:#fff}
+.itstep{display:flex;gap:12px;padding:12px 0;border-bottom:1px dashed #e4dcc8}
+.itstep:last-child{border-bottom:none}
+.itstep .tm{flex:0 0 auto;background:#f3ecd7;border:1px solid #e7dfc9;border-radius:10px;padding:4px 9px;font-size:12px;font-weight:700;height:fit-content;white-space:nowrap}
+.itstep .sb{font-weight:800;color:var(--gold,#b8912f);background:none;border:none;padding:0;cursor:pointer;font-size:15px;text-align:start}
+.dua-chip{display:inline-block;margin:5px 6px 0 0;padding:5px 10px;border-radius:999px;border:1px solid #ddd3b8;background:#fff;font-size:12.5px;font-weight:700;cursor:pointer}
+.dua-chip:hover{border-color:var(--gold,#b8912f)}
+.dirsrc{font-size:12px;color:#7a7261}
+.dirsrc a{color:var(--gold,#b8912f)}
+#ttsBtn.on{background:var(--gold,#b8912f);color:#fff}
+</style>
 </head>
 <body>
 
@@ -380,6 +406,11 @@ footer.small{max-width:960px; margin:0 auto; padding:0 14px 18px; color:var(--mu
     <h2 class="sec-title" data-i="prayerTitle"></h2>
     <p class="sec-sub" data-i="prayerSub"></p>
     <div class="hijri-box"><div class="h1" id="hijriDate">…</div><div class="h2" id="gregDate"></div></div>
+    <div class="mstoggle" id="methodToggle" role="group" aria-label="Prayer time method">
+      <button type="button" class="msbtn" id="msIsna">ISNA (North America)</button>
+      <button type="button" class="msbtn" id="msJafari">Jafari (Leva Institute, Qum)</button>
+    </div>
+    <p class="note" id="methodNote" style="display:none"></p>
     <div class="msg" id="prayerMsg"></div>
     <table class="ptable"><tbody id="ptBody"></tbody></table>
     <div class="center-col" style="margin-top:14px">
@@ -395,9 +426,39 @@ footer.small{max-width:960px; margin:0 auto; padding:0 14px 18px; color:var(--mu
     <div id="vidList"></div>
     <p class="note" data-i="needInternet"></p>
   </section>
+
+  <!-- ================= BOOKS (v5) ================= -->
+  <section class="view" id="view-books">
+    <h2 class="sec-title" id="booksTitle"></h2>
+    <p class="sec-sub" id="booksSub"></p>
+    <div id="booksHub"></div>
+    <div id="booksPanel"></div>
+  </section>
+
+  <!-- ================= BURIAL DIRECTORY (v5) ================= -->
+  <section class="view" id="view-directory">
+    <h2 class="sec-title" id="dirTitle"></h2>
+    <p class="sec-sub" id="dirSub"></p>
+    <input class="search" id="dirSearch" type="search">
+    <div id="dirList" style="margin-top:10px"></div>
+  </section>
+
+  <!-- ================= ITINERARIES (v5) ================= -->
+  <section class="view" id="view-itineraries">
+    <h2 class="sec-title" id="itinTitle"></h2>
+    <p class="sec-sub" id="itinSub"></p>
+    <div id="itinList"></div>
+  </section>
+
+  <!-- ================= AUDIO (v5) ================= -->
+  <section class="view" id="view-audio">
+    <h2 class="sec-title" id="audioTitle"></h2>
+    <p class="sec-sub" id="audioSub"></p>
+    <div id="audioList"></div>
+  </section>
 </main>
 
-<footer class="small">Ziyarat Maps v4 — <span data-i="footerNote"></span></footer>
+<footer class="small">Ziyarat Maps v5 — <span data-i="footerNote"></span></footer>
 
 <!-- site detail sheet -->
 <div id="sheetWrap" role="dialog" aria-modal="true">
@@ -415,6 +476,7 @@ footer.small{max-width:960px; margin:0 auto; padding:0 14px 18px; color:var(--mu
       <p class="note" id="sheetDescNote" style="display:none" data-i="descNoteLater"></p>
       <p class="coords"><span data-i="coordinates"></span>: <span id="sheetCoords"></span></p>
       <a class="btn" id="sheetDir" target="_blank" rel="noopener" data-i="openInGoogleMaps"></a>
+      <div id="sheetNearby" style="margin-top:14px"></div>
     </div>
   </div>
 </div>
@@ -1273,5 +1335,442 @@ $("#qSearch").addEventListener("input", e => { renderSurahList(e.target.value); 
 renderCredits();
 applyLang();
 </script>
+<script>
+"use strict";
+/* =================== ZIYARAT MAPS v5 ADDITIONS ===================
+   Books (Nahj al-Balagha, Sahifa Sajjadiya, 14 Mojzay, Tohfa tul Aloom),
+   burial directory, city itineraries, Nearby distances, Jafari prayer
+   method, read-aloud (device TTS) and an Audio section (link cards only).
+   Everything below is additive: v4 functions are wrapped, not rewritten. */
+
+const _renderTools4 = renderTools, _openSheet4 = openSheet, _loadPrayer4 = loadPrayer,
+      _renderReader4 = renderReader, _showView4 = showView;
+const L5 = (en, ur) => LANG === "ur" ? ur : en;
+
+/* ---------- Home tool cards: v4 set + 4 new sections ---------- */
+renderTools = function(){
+  const tools = [
+    {v:"quran", ic:"📖", tx:()=>t("navQuran")},
+    {v:"books", ic:"📚", tx:()=>L5("Books","کتب")},
+    {v:"map", ic:"🗺️", tx:()=>t("navMap")}, {v:"sites", ic:"📍", tx:()=>t("sitesTitle")},
+    {v:"duas", ic:"🤲", tx:()=>t("navDuas")}, {v:"tasbeeh", ic:"📿", tx:()=>t("navTasbeeh")},
+    {v:"qibla", ic:"🧭", tx:()=>t("navQibla")}, {v:"prayer", ic:"🕌", tx:()=>t("navPrayer")},
+    {v:"directory", ic:"🪦", tx:()=>L5("Who is buried where?","دفن کہاں ہیں؟")},
+    {v:"itineraries", ic:"🗓️", tx:()=>L5("Day plans","ایک دن کے منصوبے")},
+    {v:"audio", ic:"🎧", tx:()=>L5("Audio","آڈیو")},
+    {v:"videos", ic:"🎥", tx:()=>t("videosTitle")}
+  ];
+  $("#toolGrid").innerHTML = tools.map(x =>
+    `<button class="tool-card" data-goto="${x.v}"><span class="ic">${x.ic}</span><b>${x.tx()}</b></button>`).join("");
+};
+
+/* ---------- view switching: lazy-load v5 data, stop TTS ---------- */
+showView = function(name){
+  ttsStop();
+  _showView4(name);
+  if(name === "books") loadBooks().then(()=>{ renderBooksHub(); renderBooksPanel(); });
+  if(name === "directory") loadDirectory().then(renderDirectory);
+  if(name === "itineraries") Promise.all([loadItin(), loadDuas()]).then(renderItin);
+  if(name === "audio") loadAudio().then(renderAudio);
+};
+
+/* =================== READ-ALOUD (device speech synthesis) =================== */
+let ttsChunks = [], ttsIdx = 0, ttsSpeaking = false;
+function ttsStop(){
+  ttsSpeaking = false; ttsChunks = []; ttsIdx = 0;
+  if("speechSynthesis" in window) speechSynthesis.cancel();
+  const b = $("#ttsBtn"); if(b) b.classList.remove("on");
+}
+function ttsText(){
+  if(!reader || !reader.kind) return null;
+  if(reader.kind === "dua" && reader.dua) return {txt: reader.dua.arabic, lang: "ar-SA"};
+  if(reader.kind === "quran" && reader.surah) return {txt: reader.surah.a.join(" "), lang: "ar-SA"};
+  if((reader.kind === "nahj" || reader.kind === "sahifa") && reader.book) return {txt: reader.book.arabic, lang: "ar-SA"};
+  if(reader.kind === "mojzay" && reader.story) return LANG === "ur"
+    ? {txt: reader.story.text_ur, lang: "ur-PK"} : {txt: reader.story.text_en, lang: "en-US"};
+  return null;
+}
+function ttsSpeak(){
+  if(ttsSpeaking){ ttsStop(); return; }
+  const src = ttsText();
+  if(!src || !("speechSynthesis" in window)) return;
+  const clean = String(src.txt).replace(/\s+/g, " ").trim();
+  ttsChunks = [];
+  let rest = clean;
+  while(rest.length > 700){
+    let cut = rest.lastIndexOf(" ", 700);
+    if(cut < 200) cut = 700;
+    ttsChunks.push(rest.slice(0, cut)); rest = rest.slice(cut).trim();
+  }
+  if(rest) ttsChunks.push(rest);
+  ttsIdx = 0; ttsSpeaking = true;
+  $("#ttsBtn").classList.add("on");
+  const step = () => {
+    if(!ttsSpeaking || ttsIdx >= ttsChunks.length){ ttsStop(); return; }
+    const u = new SpeechSynthesisUtterance(ttsChunks[ttsIdx++]);
+    u.lang = src.lang;
+    try{
+      const v = speechSynthesis.getVoices().find(v => v.lang && v.lang.toLowerCase().indexOf(src.lang.slice(0,2)) === 0);
+      if(v) u.voice = v;
+    }catch(e){}
+    u.onend = step; u.onerror = step;
+    speechSynthesis.speak(u);
+  };
+  step();
+}
+(function(){
+  const rbar = document.querySelector("#view-reader .rbar");
+  if(rbar){
+    const b = document.createElement("button");
+    b.className = "fbtn"; b.id = "ttsBtn"; b.type = "button";
+    b.addEventListener("click", ttsSpeak);
+    rbar.appendChild(b);
+  }
+  const back = $("#readerBack");
+  if(back) back.addEventListener("click", ttsStop);
+})();
+
+/* =================== READER: book kinds =================== */
+renderReader = function(){
+  const bk = reader.kind === "nahj" || reader.kind === "sahifa" || reader.kind === "mojzay";
+  ["trEnBtn","trUrBtn","trBothBtn","trOffBtn"].forEach(id => { const el = document.getElementById(id); if(el) el.style.display = bk ? "none" : ""; });
+  if(!bk){ _renderReader4(); return; }
+  const body = $("#readerBody");
+  body.style.setProperty("--rfs", reader.font + "px");
+  const note = $("#readerNote");
+  $("#readerBack").textContent = t("backTxt");
+  if(reader.kind === "nahj"){
+    const it = reader.book, kindLbl = reader.bookKind === "letters" ? L5("Letter","خط") : reader.bookKind === "sayings" ? L5("Saying","حکمت") : L5("Sermon","خطبہ");
+    $("#readerTitle").textContent = kindLbl + " " + it.n + (it.title_en ? " — " + it.title_en : "");
+    $("#readerSub").textContent = it.title_ar || "";
+    note.style.display = "block";
+    note.textContent = (it.intro_en ? it.intro_en + " " : "") + L5(
+      "Arabic text: the classical public-domain text of Nahj al-Balagha (transcription follows the open dataset noted in the Books section). The titles and introductions are our own; full English/Urdu translations of each item are being prepared.",
+      "عربی متن: نہج البلاغہ کا کلاسیکی پبلک ڈومین متن۔ عنوانات اور تعارف ہمارے اپنے ہیں؛ ہر شے کا مکمل انگریزی/اردو ترجمہ تیار کیا جا رہا ہے۔");
+    body.innerHTML = `<div class="arabic">${esc(it.arabic)}</div>`;
+  } else if(reader.kind === "sahifa"){
+    const d = reader.book;
+    $("#readerTitle").textContent = L5("Supplication ","دعا ") + d.n + " — " + (LANG === "ur" && d.title_ur ? d.title_ur : d.title_en);
+    $("#readerSub").textContent = d.title_ar || "";
+    note.style.display = "block";
+    note.textContent = (d.note_en ? d.note_en + " " : "") + L5(
+      "Arabic text: al-Sahifa al-Sajjadiya, public domain (via Arabic Wikisource). The short notes are our own; the famous copyrighted English translation is not reproduced here.",
+      "عربی متن: الصحیفہ السجادیہ، پبلک ڈومین (عربی وکی سورس)۔ مختصر نوٹ ہمارے اپنے ہیں؛ مشہور انگریزی ترجمہ کاپی رائٹ ہے، یہاں شامل نہیں۔");
+    body.innerHTML = `<div class="arabic">${esc(d.arabic)}</div>`;
+  } else if(reader.kind === "mojzay"){
+    const st = reader.story, fig = reader.figure;
+    $("#readerTitle").textContent = LANG === "ur" ? st.title_ur : st.title_en;
+    $("#readerSub").textContent = LANG === "ur" ? fig.name_ur : fig.name_en;
+    note.style.display = "block";
+    note.textContent = L5("Retold in our own words from the classical tradition (books of manaqib such as Bihar al-Anwar) — not a quotation of any modern book.",
+                          "کلاسیکی روایت (کتبِ مناقب جیسے بحار الانوار) سے اپنے الفاظ میں بیان کیا گیا — کسی جدید کتاب کا اقتباس نہیں۔");
+    body.innerHTML = `<div class="trbody">${esc(st.text_en)}</div><div class="trbody urdu">${esc(st.text_ur)}</div>`;
+  }
+};
+function openBook(kind, item, extra){
+  reader.kind = kind; reader.book = item; reader.back = "books";
+  if(extra){ reader.bookKind = extra.bookKind || null; reader.story = extra.story || null; reader.figure = extra.figure || null; }
+  renderReader(); showView("reader");
+}
+
+/* =================== BOOKS =================== */
+let BOOKS = null, SAHIFA = null, MOJZAY = null, booksPromise = null;
+function loadBooks(){
+  if(booksPromise) return booksPromise;
+  booksPromise = Promise.all([
+    fetch("books.json").then(r => r.json()),
+    fetch("sahifa.json").then(r => r.json()),
+    fetch("mojzay.json").then(r => r.json())
+  ]).then(([b, s, m]) => { BOOKS = b; SAHIFA = s; MOJZAY = m; })
+    .catch(()=>{ const el = $("#booksPanel"); if(el) el.innerHTML = `<p class="note">${t("loadingTxt")} ✕</p>`; });
+  return booksPromise;
+}
+const bkState = {panel:"nahj", tab:"sermons", q:"", fig:-1};
+function renderBooksHub(){
+  const el = $("#booksHub"); if(!el || !BOOKS) return;
+  const nN = BOOKS.sermons.length + BOOKS.letters.length + BOOKS.sayings.length;
+  el.innerHTML = `<div class="book-grid">
+    <button class="book-card" data-bk="nahj"><span class="ic">📜</span><span><b>${L5("Nahj al-Balagha","نہج البلاغہ")}</b><small>${L5(BOOKS.sermons.length + " sermons · " + BOOKS.letters.length + " letters · " + BOOKS.sayings.length + " sayings of Imam Ali (a.s.) — full Arabic", "امام علی علیہ السلام کے " + BOOKS.sermons.length + " خطبات، " + BOOKS.letters.length + " خطوط اور " + BOOKS.sayings.length + " حکمت بھرے اقوال — مکمل عربی")}</small></span></button>
+    <button class="book-card" data-bk="sahifa"><span class="ic">🤲</span><span><b>${L5("Sahifa Sajjadiya","صحیفہ سجادیہ")}</b><small>${L5(SAHIFA.duas.length + " supplications of Imam Zayn al-Abidin (a.s.) — full Arabic", "امام زین العابدین علیہ السلام کی " + SAHIFA.duas.length + " دعائیں — مکمل عربی")}</small></span></button>
+    <button class="book-card" data-bk="mojzay"><span class="ic">✨</span><span><b>${L5("14 Mojzay","14 موجزے")}</b><small>${L5("Miracle accounts of the Fourteen Masoomeen, retold in our own words (English + Urdu)", "چودہ معصومین کے معجزات، ہمارے اپنے الفاظ میں (انگریزی + اردو)")}</small></span></button>
+    <button class="book-card" data-bk="tohfa"><span class="ic">📕</span><span><b>${esc(BOOKS.tohfa.title_en)}</b><small>${L5("Being prepared — see the honest note inside", "تیاری کے مراحل میں — اندر دیانت دارانہ نوٹ دیکھیں")}</small></span></button>
+  </div>`;
+  $$("#booksHub .book-card").forEach(b => b.addEventListener("click", ()=>{
+    bkState.panel = b.dataset.bk; bkState.fig = -1; bkState.q = "";
+    renderBooksPanel();
+    const p = $("#booksPanel"); if(p) p.scrollIntoView({block:"start", behavior:"smooth"});
+  }));
+}
+function nahjRows(){
+  const items = BOOKS[bkState.tab];
+  const q = bkState.q.trim().toLowerCase();
+  const list = items.filter(it => !q || String(it.n) === q ||
+    (it.title_en && it.title_en.toLowerCase().includes(q)) || (it.title_ar && it.title_ar.includes(bkState.q.trim())));
+  const cap = 200, shown = list.slice(0, cap);
+  let html = shown.map(it => {
+    const idx = items.indexOf(it);
+    const lbl = bkState.tab === "sayings"
+      ? `<b>${L5("Saying ","حکمت ") + it.n}</b><small>${esc((it.arabic || "").slice(0, 80))}…</small>`
+      : `<b>${it.n}. ${esc(it.title_en || "")}</b><small>${esc(it.title_ar || "")}</small>`;
+    return `<button class="dua-row" data-nahj="${idx}"><span>${lbl}</span><span class="art">${bkState.tab === "sayings" ? "" : "📜"}</span></button>`;
+  }).join("");
+  if(list.length > cap) html += `<p class="note">${L5("Showing the first " + cap + " of " + list.length + " — type in the search box to narrow down.", "کل " + list.length + " میں سے پہلی " + cap + " دکھائی جا رہی ہیں — تلاش خانے میں لکھ کر محدود کریں۔")}</p>`;
+  if(!list.length) html = `<p class="note">${L5("No match.", "کوئی نتیجہ نہیں۔")}</p>`;
+  return html;
+}
+function renderBooksPanel(){
+  const el = $("#booksPanel"); if(!el || !BOOKS) return;
+  if(bkState.panel === "nahj"){
+    el.innerHTML = `<h3 class="cathead">${L5("Nahj al-Balagha","نہج البلاغہ")}</h3>
+      <p class="note">${esc(BOOKS.source_note)}</p>
+      <div class="bktabs">
+        ${[["sermons", L5("Sermons","خطبات")],["letters", L5("Letters","خطوط")],["sayings", L5("Sayings","اقوال")]].map(([k, lbl]) =>
+          `<button class="chip ${bkState.tab === k ? "on" : ""}" data-tab="${k}">${lbl}</button>`).join("")}
+      </div>
+      <input class="search" id="bkSearch" type="search" placeholder="${L5("Search number or title…","نمبر یا عنوان تلاش کریں…")}" value="${esc(bkState.q)}">
+      <div id="bkList" style="margin-top:10px">${nahjRows()}</div>`;
+    $$("#booksPanel [data-tab]").forEach(b => b.addEventListener("click", ()=>{ bkState.tab = b.dataset.tab; bkState.q = ""; renderBooksPanel(); }));
+    const si = $("#bkSearch");
+    si.addEventListener("input", ()=>{ bkState.q = si.value; const v = si.value, pos = si.selectionStart;
+      $("#bkList").innerHTML = nahjRows(); bindNahjRows();
+      const n = $("#bkSearch"); n.focus(); n.setSelectionRange(pos, pos); });
+    bindNahjRows();
+  } else if(bkState.panel === "sahifa"){
+    el.innerHTML = `<h3 class="cathead">${L5("Sahifa Sajjadiya — the Psalms of the Household","صحیفہ سجادیہ")}</h3>
+      <p class="note">${L5("All 54 supplications of Imam Zayn al-Abidin (a.s.), full Arabic (public domain, via Arabic Wikisource). Short notes are our own; the copyrighted Chittick translation is not used.", "امام زین العابدین علیہ السلام کی تمام 54 دعائیں، مکمل عربی (پبلک ڈومین، عربی وکی سورس)۔ مختصر نوٹ ہمارے اپنے ہیں؛ مشہور انگریزی ترجمہ استعمال نہیں کیا گیا۔")}</p>` +
+      SAHIFA.duas.map((d, i) =>
+        `<button class="dua-row" data-sahifa="${i}"><span><b>${d.n}. ${esc(LANG === "ur" && d.title_ur ? d.title_ur : d.title_en)}</b><small>${esc(d.title_ar || "")}</small></span><span class="art">🤲</span></button>`).join("");
+    $$("#booksPanel [data-sahifa]").forEach(b => b.addEventListener("click", ()=> openBook("sahifa", SAHIFA.duas[+b.dataset.sahifa])));
+  } else if(bkState.panel === "mojzay"){
+    if(bkState.fig < 0){
+      el.innerHTML = `<h3 class="cathead">${L5("14 Mojzay — miracles of the Fourteen Masoomeen","14 موجزے — چودہ معصومین کے معجزات")}</h3>
+        <p class="note">${esc(LANG === "ur" ? MOJZAY.about_ur : MOJZAY.about_en)}</p>` +
+        MOJZAY.entries.map((f, i) =>
+          `<button class="dua-row" data-fig="${i}"><span><b>${esc(LANG === "ur" ? f.name_ur : f.name_en)}</b><small>${f.stories.length} ${L5("account(s)","واقعات")}</small></span><span class="art">${esc(f.name_ar)}</span></button>`).join("");
+      $$("#booksPanel [data-fig]").forEach(b => b.addEventListener("click", ()=>{ bkState.fig = +b.dataset.fig; renderBooksPanel(); }));
+    } else {
+      const f = MOJZAY.entries[bkState.fig];
+      el.innerHTML = `<button class="btn ghost" id="bkBackFig">${t("backTxt")}</button>
+        <h3 class="cathead">${esc(LANG === "ur" ? f.name_ur : f.name_en)}</h3>` +
+        f.stories.map((st, i) =>
+          `<button class="dua-row" data-story="${i}"><span><b>${esc(LANG === "ur" ? st.title_ur : st.title_en)}</b></span><span class="art">✨</span></button>`).join("");
+      $("#bkBackFig").addEventListener("click", ()=>{ bkState.fig = -1; renderBooksPanel(); });
+      $$("#booksPanel [data-story]").forEach(b => b.addEventListener("click", ()=>
+        openBook("mojzay", null, {story: f.stories[+b.dataset.story], figure: f})));
+    }
+  } else if(bkState.panel === "tohfa"){
+    el.innerHTML = `<h3 class="cathead">${esc(BOOKS.tohfa.title_en)} — ${esc(BOOKS.tohfa.title_ur)}</h3>
+      <p class="note">${esc(LANG === "ur" ? BOOKS.tohfa.status_ur : BOOKS.tohfa.status_en)}</p>`;
+  }
+}
+function bindNahjRows(){
+  $$("#bkList [data-nahj]").forEach(b => b.addEventListener("click", ()=>
+    openBook("nahj", BOOKS[bkState.tab][+b.dataset.nahj], {bookKind: bkState.tab})));
+}
+
+/* =================== BURIAL DIRECTORY =================== */
+let DIR = null, dirPromise = null, dirQ = "";
+function loadDirectory(){
+  if(dirPromise) return dirPromise;
+  dirPromise = fetch("directory.json").then(r => r.json()).then(d => { DIR = d; })
+    .catch(()=>{ const el = $("#dirList"); if(el) el.innerHTML = `<p class="note">${t("loadingTxt")} ✕</p>`; });
+  return dirPromise;
+}
+function renderDirectory(){
+  const el = $("#dirList"); if(!el || !DIR) return;
+  const q = dirQ.trim().toLowerCase();
+  const cities = ["Najaf", "Karbala", "Kufa", "Baghdad", "Samarra"];
+  const hit = e => !q || e.name.toLowerCase().includes(q) || (e.name_ur && e.name_ur.includes(dirQ.trim())) ||
+    e.place.toLowerCase().includes(q) || e.city.toLowerCase().includes(q);
+  const list = DIR.entries.filter(hit);
+  el.innerHTML = (list.length ? "" : `<p class="note">${L5("No match.", "کوئی نتیجہ نہیں۔")}</p>`) +
+    cities.map(c => {
+      const rows = list.filter(e => e.city === c);
+      if(!rows.length) return "";
+      return `<h3 class="cathead">${c}</h3>` + rows.map(e =>
+        `<div class="dua-row" style="cursor:default"><span><b>${esc(e.name)}</b> <span class="ur">${esc(e.name_ur || "")}</span>
+          <small>${esc(e.place)} — ${esc(e.detail)}</small>
+          <small class="dirsrc">${L5("Source","ماخذ")}: <a href="${esc(e.source_url)}" target="_blank" rel="noopener">${esc(e.source_name)}</a></small></span>
+          ${e.site_id ? `<button class="fbtn" data-dirsite="${esc(e.site_id)}">${L5("Site","مقام")}</button>` : ""}</div>`).join("");
+    }).join("");
+  $$("#dirList [data-dirsite]").forEach(b => b.addEventListener("click", ()=>{
+    const s = SITES.find(x => x.id === b.dataset.dirsite); if(s) openSheet(s);
+  }));
+}
+$("#dirSearch").addEventListener("input", e => { dirQ = e.target.value; renderDirectory(); });
+
+/* =================== ITINERARIES =================== */
+let ITIN = null, itinPromise = null, openPlan = -1;
+function loadItin(){
+  if(itinPromise) return itinPromise;
+  itinPromise = fetch("itineraries.json").then(r => r.json()).then(d => { ITIN = d; })
+    .catch(()=>{ const el = $("#itinList"); if(el) el.innerHTML = `<p class="note">${t("loadingTxt")} ✕</p>`; });
+  return itinPromise;
+}
+function duaTitle(id){
+  const e = (typeof DUAS3 !== "undefined" && DUAS3) ? DUAS3.find(x => x.id === id) : null;
+  return e ? (LANG === "ur" && e.title_ur ? e.title_ur : e.title_en) : id;
+}
+function renderItin(){
+  const el = $("#itinList"); if(!el || !ITIN) return;
+  el.innerHTML = ITIN.plans.map((p, pi) =>
+    `<div class="dua-row" style="cursor:default;display:block">
+       <button class="sb" style="font-weight:800;background:none;border:none;padding:0;cursor:pointer;font-size:16px;text-align:start" data-plan="${pi}">${esc(LANG === "ur" ? p.title_ur : p.title_en)} ▾</button>
+       <small>${esc(LANG === "ur" ? p.intro_ur : p.intro_en)}</small>
+       ${openPlan === pi ? `<div style="margin-top:8px">` + p.steps.map(st => {
+         const site = SITES.find(s => s.id === st.site);
+         return `<div class="itstep"><span class="tm">${esc(LANG === "ur" ? st.time_ur : st.time_en)}</span>
+           <div><button class="sb" data-step-site="${esc(st.site)}">${esc(site ? site.name : st.site)}</button>
+           <div>${esc(LANG === "ur" ? st.what_ur : st.what_en)}</div>
+           ${(st.duas || []).map(d => `<button class="dua-chip" data-step-dua="${esc(d)}">🤲 ${esc(duaTitle(d))}</button>`).join("")}
+           </div></div>`;
+       }).join("") + `</div>` : ""}
+     </div>`).join("");
+  $$("#itinList [data-plan]").forEach(b => b.addEventListener("click", ()=>{
+    const i = +b.dataset.plan; openPlan = openPlan === i ? -1 : i; renderItin();
+  }));
+  $$("#itinList [data-step-site]").forEach(b => b.addEventListener("click", ()=>{
+    const s = SITES.find(x => x.id === b.dataset.stepSite); if(s) openSheet(s);
+  }));
+  $$("#itinList [data-step-dua]").forEach(b => b.addEventListener("click", ()=> openDua(b.dataset.stepDua)));
+}
+
+/* =================== AUDIO =================== */
+let AUD = null, audioPromise = null;
+function loadAudio(){
+  if(audioPromise) return audioPromise;
+  audioPromise = fetch("audio.json").then(r => r.json()).then(d => { AUD = d; })
+    .catch(()=>{ const el = $("#audioList"); if(el) el.innerHTML = `<p class="note">${t("loadingTxt")} ✕</p>`; });
+  return audioPromise;
+}
+function renderAudio(){
+  const el = $("#audioList"); if(!el || !AUD) return;
+  el.innerHTML =
+    `<h3 class="cathead">${L5("Ali Fani — recitations (links)","علی فانی — تلاوتیں (لنکس)")}</h3>
+     <p class="note">${esc(LANG === "ur" ? AUD.note_ur : AUD.note_en)}</p>` +
+    AUD.aliFani.map(c =>
+      `<a class="ig-card" target="_blank" rel="noopener" href="${esc(c.href)}">
+         <span class="ig-ic">🎧</span>
+         <span class="ig-tx"><b>${esc(LANG === "ur" ? c.title_ur : c.title_en)}</b><small>YouTube</small></span>
+         <span class="play">›</span></a>`).join("") +
+    `<h3 class="cathead">${L5("Listen offline — read-aloud","آف لائن سنیں — خودکار تلاوت")}</h3>
+     <p class="note">${L5("Open any dua, ziyarat or book page and tap the 🔊 Listen button in the reader: your device reads the text aloud in its own voice — this works offline too (an Arabic voice pack may need to be installed on the phone; it is the device's voice, not the reciter's).",
+                          "کوئی بھی دعا، زیارت یا کتاب کھول کر ریڈر میں 🔊 سنیں بٹن دبائیں: آپ کا فون متن کو اپنی آواز میں پڑھ کر سناتا ہے — یہ آف لائن بھی چلتا ہے (فون میں عربی وائس پیک درکار ہو سکتا ہے؛ یہ ڈیوائس کی آواز ہے، قاری کی نہیں)۔")}</p>` +
+    (AUD.offline && AUD.offline.length
+      ? AUD.offline.map((f, i) =>
+        `<div class="dua-row" style="cursor:default"><span><b>${esc(f.title_en || f.file)}</b>
+           <audio controls preload="none" src="${esc(f.file)}" style="width:100%;margin-top:6px"></audio></span>
+           <button class="fbtn" data-save-audio="${i}">${L5("Save for offline","آف لائن کے لیے محفوظ")}</button></div>`).join("")
+      : `<p class="note">${L5("No audio files are bundled in this version — recordings will be added here only when they are lawfully held, and each will get a “Save for offline” button.",
+                              "اس نسخے میں کوئی آڈیو فائل شامل نہیں — ریکارڈنگز یہاں صرف اسی وقت شامل ہوں گی جب وہ قانونی طور پر حاصل ہوں، اور ہر ایک کے ساتھ ’آف لائن کے لیے محفوظ‘ بٹن ہوگا۔")}</p>`);
+  $$("#audioList [data-save-audio]").forEach(b => b.addEventListener("click", ()=>{
+    const f = AUD.offline[+b.dataset.saveAudio];
+    if(!("caches" in window)) return;
+    b.textContent = "…";
+    caches.open("zm-audio-v5").then(c => c.add(f.file)).then(()=>{ b.textContent = "✓"; })
+      .catch(()=>{ b.textContent = "✕"; });
+  }));
+}
+
+/* =================== NEARBY (haversine, straight-line) =================== */
+function havKm(a, b){
+  const R = 6371, dLa = (b.lat - a.lat) * Math.PI / 180, dLo = (b.lng - a.lng) * Math.PI / 180;
+  const h = Math.sin(dLa / 2) ** 2 + Math.cos(a.lat * Math.PI / 180) * Math.cos(b.lat * Math.PI / 180) * Math.sin(dLo / 2) ** 2;
+  return 2 * R * Math.asin(Math.sqrt(h));
+}
+function fmtDist(km){ return km < 1 ? Math.round(km * 1000) + " m" : km.toFixed(1) + " km"; }
+function renderNearby(s){
+  const box = $("#sheetNearby"); if(!box) return;
+  const near = SITES.filter(x => x.id !== s.id)
+    .map(x => ({x, d: havKm(s, x)})).sort((a, b) => a.d - b.d).slice(0, 5);
+  box.innerHTML = `<h4 style="margin:0 0 2px">${L5("Nearby sites","قریبی مقامات")}</h4>
+    <p class="note" style="margin:0 0 4px">${L5("Approximate straight-line distance","تخمینی سیدھی لائن کا فاصلہ")}</p>` +
+    near.map(n => `<button class="near-row" data-near="${esc(n.x.id)}"><b>${esc(n.x.name)}</b><span class="dist">${fmtDist(n.d)}</span></button>`).join("");
+  $$("#sheetNearby [data-near]").forEach(b => b.addEventListener("click", ()=>{
+    const ns = SITES.find(x => x.id === b.dataset.near); if(ns) openSheet(ns);
+  }));
+}
+openSheet = function(s){ _openSheet4(s); if(s) renderNearby(s); };
+
+/* =================== PRAYER: ISNA / Jafari (Leva) toggle =================== */
+let prayerMethod = 2;
+try{ prayerMethod = localStorage.getItem("zmMethod") === "0" ? 0 : 2; }catch(e){}
+function paintMethod(){
+  $("#msIsna").classList.toggle("on", prayerMethod === 2);
+  $("#msJafari").classList.toggle("on", prayerMethod === 0);
+  const n = $("#methodNote");
+  if(prayerMethod === 0){
+    n.style.display = "block";
+    n.textContent = L5("Jafari times by the Leva Institute (Qum) calculation. Note: in this method Maghrib is an approximation — it is shown when the sun's disc has set, while Jafari fiqh places Maghrib a little later, after the redness in the east disappears.",
+                       "جعفری اوقات لیوا انسٹیٹیوٹ (قم) کے حساب سے ہیں۔ نوٹ: اس طریقے میں مغرب ایک تخمینہ ہے — یہ سورج کی ٹکیا غروب ہونے پر دکھایا جاتا ہے، جبکہ جعفری فقہ میں مغرب اس سے کچھ دیر بعد، مشرق کی سرخی ختم ہونے پر ہوتی ہے۔");
+  } else n.style.display = "none";
+}
+loadPrayer = async function(forceGeo){
+  setHijriLocal();
+  const msg = $("#prayerMsg"); msg.classList.remove("on");
+  $("#ptBody").innerHTML = `<tr><td colspan="2" style="text-align:center;color:var(--muted)">${t("prayerLoading")}</td></tr>`;
+  let coords = lastCoords, isUser = !!userLoc;
+  if(forceGeo || !coords){
+    const p = await getPos();
+    if(p){ coords = p; isUser = true; userLoc = p; updateBearings(); }
+    else if(!coords){ coords = NAJAF; isUser = false; }
+  }
+  lastCoords = coords;
+  try{
+    const ts = Math.floor(Date.now() / 1000);
+    const url = `https://api.aladhan.com/v1/timings/${ts}?latitude=${coords.lat}&longitude=${coords.lng}&method=${prayerMethod}`;
+    const r = await fetch(url);
+    const j = await r.json();
+    if(!j || !j.data || !j.data.timings) throw new Error("bad response");
+    lastTimings = j.data.timings;
+    renderPrayerRows(lastTimings);
+    const h = j.data.date && j.data.date.hijri;
+    if(h && h.day && h.month) $("#hijriDate").textContent = h.day + " " + (h.month.en || "") + " " + h.year;
+    $("#prayerNote").textContent = (isUser ? t("yourLocNote") : t("defaultLocNote")) +
+      (prayerMethod === 0 ? L5(" Method: Jafari (Leva Institute, Qum).", " طریقہ: جعفری (لیوا انسٹیٹیوٹ، قم)۔") : " Method: ISNA.");
+  }catch(e){
+    $("#ptBody").innerHTML = "";
+    msg.textContent = t("prayerError"); msg.classList.add("on");
+    $("#prayerNote").textContent = isUser ? t("yourLocNote") : t("defaultLocNote");
+  }
+};
+function setMethod(m){
+  prayerMethod = m;
+  try{ localStorage.setItem("zmMethod", String(m)); }catch(e){}
+  paintMethod();
+  loadPrayer(false);
+}
+$("#msIsna").addEventListener("click", ()=> setMethod(2));
+$("#msJafari").addEventListener("click", ()=> setMethod(0));
+paintMethod();
+
+/* =================== v5 view titles + language refresh =================== */
+function setV5Titles(){
+  const set = (id, en, ur) => { const el = document.getElementById(id); if(el) el.textContent = L5(en, ur); };
+  set("booksTitle", "Books", "کتب");
+  set("booksSub", "The pilgrim's library: Nahj al-Balagha, Sahifa Sajjadiya, the miracles of the Fourteen Masoomeen — full Arabic texts, lawfully sourced, with our own notes.", "زائر کی لائبریری: نہج البلاغہ، صحیفہ سجادیہ، چودہ معصومین کے معجزات — مکمل عربی متون، قانونی ماخذ سے، ہمارے اپنے نوٹس کے ساتھ۔");
+  set("dirTitle", "Who is buried where?", "دفن کہاں ہیں؟");
+  set("dirSub", "Notable scholars and figures and their resting places in Najaf, Karbala, Kufa, Baghdad and Samarra — every entry checked against the source named under it. Names whose burial place we could not verify are not listed.", "نجف، کربلا، کوفہ، بغداد اور سامراء میں عظیم علماء و شخصیات کے مدافن — ہر اندراج اس کے نیچے درج ماخذ سے تصدیق شدہ ہے۔ جن کے مدفن کی تصدیق نہ ہو سکی، وہ شامل نہیں۔");
+  set("itinTitle", "One-day ziyarat plans", "ایک دن کے زیارت منصوبے");
+  set("itinSub", "Step-by-step days built from this app's own sites. Tap a site name to open it, and a dua chip to read that dua or ziyarat.", "اس ایپ کے اپنے مقامات سے ترتیب دیے گئے مرحلہ وار دن۔ مقام کے نام پر چھو کر اسے کھولیں، اور دعا کے بٹن سے وہ دعا یا زیارت پڑھیں۔");
+  set("audioTitle", "Audio", "آڈیو");
+  set("audioSub", "Recitations by Ali Fani open on YouTube (links only — nothing is downloaded or hosted). For offline listening, use the read-aloud button in the reader.", "علی فانی کی تلاوتیں یوٹیوب پر کھلتی ہیں (صرف لنکس — کچھ ڈاؤن لوڈ یا ہوسٹ نہیں ہوتا)۔ آف لائن سننے کے لیے ریڈر کا خودکار تلاوت بٹن استعمال کریں۔");
+  const tts = $("#ttsBtn"); if(tts) tts.textContent = "🔊 " + L5("Listen", "سنیں");
+  const ds = $("#dirSearch"); if(ds) ds.placeholder = L5("Search a name or place…", "نام یا جگہ تلاش کریں…");
+}
+setV5Titles();
+renderTools(); /* repaint the home grid with the v5 card set (v4 boot painted it before this block loaded) */
+$$(".langbar button").forEach(b => b.addEventListener("click", ()=>{
+  setTimeout(()=>{
+    setV5Titles();
+    if(BOOKS){ renderBooksHub(); renderBooksPanel(); }
+    if(DIR) renderDirectory();
+    if(ITIN) renderItin();
+    if(AUD) renderAudio();
+    paintMethod();
+  }, 0);
+}));
+</script>
+
 </body>
 </html>

@@ -8,9 +8,9 @@
  *  - APIs (Aladhan) and everything else: network-first with cache fallback
  *    for navigations only.
  */
-const CACHE = "ziyarat-maps-v4-r1";
-const IMGCACHE = "ziyarat-maps-v4-images";
-const SHELL = ["./", "./index.html", "./manifest.json", "./icon.svg", "./quran.json", "./quran-ur.json", "./duas.json", "./photos.json"];
+const CACHE = "ziyarat-maps-v5-r1";
+const IMGCACHE = "ziyarat-maps-v5-images";
+const SHELL = ["./", "./index.html", "./manifest.json", "./icon.svg", "./quran.json", "./quran-ur.json", "./duas.json", "./photos.json", "./books.json", "./sahifa.json", "./mojzay.json", "./directory.json", "./itineraries.json", "./audio.json"];
 
 self.addEventListener("install", event => {
   event.waitUntil(
@@ -24,7 +24,7 @@ self.addEventListener("install", event => {
 self.addEventListener("activate", event => {
   event.waitUntil(
     caches.keys()
-      .then(keys => Promise.all(keys.filter(k => k !== CACHE && k !== IMGCACHE).map(k => caches.delete(k))))
+      .then(keys => Promise.all(keys.filter(k => k !== CACHE && k !== IMGCACHE && k !== "zm-audio-v5").map(k => caches.delete(k))))
       .then(() => self.clients.claim())
   );
 });
