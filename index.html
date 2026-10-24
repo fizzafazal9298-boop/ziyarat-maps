@@ -458,7 +458,7 @@ footer.small{max-width:960px; margin:0 auto; padding:0 14px 18px; color:var(--mu
   </section>
 </main>
 
-<footer class="small">Ziyarat Maps v5 — <span data-i="footerNote"></span></footer>
+<footer class="small">Ziyarat Maps v5.1 — <span data-i="footerNote"></span></footer>
 
 <!-- site detail sheet -->
 <div id="sheetWrap" role="dialog" aria-modal="true">
@@ -489,6 +489,7 @@ footer.small{max-width:960px; margin:0 auto; padding:0 14px 18px; color:var(--mu
   <button data-nav="tasbeeh"><span class="ic">📿</span><span data-i="navTasbeeh"></span></button>
   <button data-nav="qibla"><span class="ic">🧭</span><span data-i="navQibla"></span></button>
   <button data-nav="prayer"><span class="ic">🕌</span><span data-i="navPrayer"></span></button>
+  <button data-nav="audio"><span class="ic">🎧</span><span data-i="navAudio"></span></button>
 </nav>
 
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
@@ -1042,10 +1043,10 @@ if("serviceWorker" in navigator){
 
 /* ---------- extra UI strings ---------- */
 const X18N = {
-en:{navQuran:"Quran",quranTitle:"The Holy Quran",quranSub:"The complete Quran — 114 surahs, 6,236 verses (Uthmani script). Translations: English by Marmaduke Pickthall (1930, public domain) and Urdu by Fateh Muhammad Jalandhry (via Al Quran Cloud). In the reader, choose Arabic only, English, Urdu, or both — your choice is remembered.",quranSearchPh:"Search Arabic text, or a surah name…",photoCredits:"Photo credits",creditsNote:"Shrine and city photographs are from Wikimedia Commons and are used under their free licences:",urduComing:"Urdu translation coming soon — the full Arabic text above is complete.",arabicOnly:"Arabic only",backTxt:"← Back",matchingVerses:"Matching verses",loadingTxt:"Loading…",libCatZiyarat:"Ziyarat",libCatDua:"Duas",libCatTaqibat:"Ta'qibat — after the prayer",igNote:"All videos open on Instagram — nothing is downloaded or hosted in this app.",watchIG:"Watch on Instagram",duasSub:"Complete texts — full Arabic, with our own English translations (Urdu available for several; the rest are marked “coming”). No excerpts.",videosSub:"Ziyarat videos, live shrine coverage and recitations are published on the Instagram page @_ibnemurtaza. These cards open Instagram."},
-ur:{navQuran:"قرآن",quranTitle:"قرآنِ مجید",quranSub:"مکمل قرآن — 114 سورتیں، 6,236 آیات (رسمِ عثمانی)۔ ترجمے: انگریزی محمد مارماڈیوک پکتھال (1930ء، پبلک ڈومین) اور اردو فتح محمد جالندھری (Al Quran Cloud کے ذریعے)۔ ریڈر میں صرف عربی، انگریزی، اردو یا دونوں منتخب کریں — آپ کی پسند محفوظ رہے گی۔",quranSearchPh:"عربی متن یا سورت کا نام تلاش کریں…",photoCredits:"تصاویر کے کریڈٹ",creditsNote:"حرم اور شہروں کی تصاویر Wikimedia Commons سے ان کے آزاد لائسنس کے تحت استعمال ہوئی ہیں:",urduComing:"اردو ترجمہ جلد آئے گا — اوپر مکمل عربی متن موجود ہے۔",arabicOnly:"صرف عربی",backTxt:"← واپس",matchingVerses:"ملتی ہوئی آیات",loadingTxt:"لوڈ ہو رہا ہے…",libCatZiyarat:"زیارات",libCatDua:"دعائیں",libCatTaqibat:"تعقیباتِ نماز",igNote:"تمام ویڈیوز انسٹاگرام پر کھلتی ہیں — اس ایپ میں کچھ ڈاؤن لوڈ یا ہوسٹ نہیں ہوتا۔",watchIG:"انسٹاگرام پر دیکھیں",duasSub:"مکمل متن — مکمل عربی، ہمارے اپنے انگریزی ترجمے کے ساتھ (کئی دعاؤں کا اردو ترجمہ بھی موجود ہے؛ باقی “جلد” نشان زد ہیں)۔ کوئی خلاصہ نہیں۔",videosSub:"زیارت کی ویڈیوز، حرم کی لائیو کوریج اور تلاوتیں انسٹاگرام پیج @_ibnemurtaza پر شائع ہوتی ہیں۔ یہ کارڈز انسٹاگرام کھولتے ہیں۔"},
-ar:{navQuran:"القرآن",quranTitle:"القرآن الكريم",quranSub:"القرآن كاملاً — 114 سورة، 6,236 آية (بالرسم العثماني). الترجمات: الإنجليزية لمحمد بيكثال (1930، ملكية عامة) والأردية لفتح محمد جالندهري (عبر Al Quran Cloud). في القارئ اختر العربية فقط أو الإنجليزية أو الأردية أو كليهما.",quranSearchPh:"ابحث في النص العربي أو اسم سورة…",photoCredits:"حقوق الصور",creditsNote:"صور الأضرحة والمدن من ويكيميديا كومنز وتُستخدم بموجب رخصها الحرة:",urduComing:"الترجمة الأردية قادمة قريباً — النص العربي الكامل أعلاه.",arabicOnly:"العربية فقط",backTxt:"عودة →",matchingVerses:"آيات مطابقة",loadingTxt:"جارٍ التحميل…",libCatZiyarat:"الزيارات",libCatDua:"الأدعية",libCatTaqibat:"تعقيبات الصلاة",igNote:"جميع مقاطع الفيديو تُفتح على إنستغرام — لا يُنزَّل أو يُستضاف شيء في هذا التطبيق.",watchIG:"شاهد على إنستغرام",duasSub:"النصوص كاملة بالعربية مع ترجمتنا الإنجليزية الخاصة. لا مقتطفات.",videosSub:"تُنشر فيديوهات الزيارة والتغطية المباشرة للأضرحة على صفحة إنستغرام @_ibnemurtaza. هذه البطاقات تفتح إنستغرام."},
-fa:{navQuran:"قرآن",quranTitle:"قرآن کریم",quranSub:"قرآن کامل — 114 سوره، 6,236 آیه (رسم عثمانی). ترجمه‌ها: انگلیسی محمد پیکتال (1930، مالکیت عمومی) و اردو فتح محمد جالندهری (از طریق Al Quran Cloud). در خواننده، فقط عربی، انگلیسی، اردو یا هر دو را انتخاب کنید.",quranSearchPh:"جستجو در متن عربی یا نام سوره…",photoCredits:"اعتبار عکس‌ها",creditsNote:"عکس‌های حرم‌ها و شهرها از ویکی‌مدیا کامنز و تحت مجوزهای آزاد آن‌ها استفاده شده‌اند:",urduComing:"ترجمهٔ اردو به‌زودی — متن کامل عربی در بالا موجود است.",arabicOnly:"فقط عربی",backTxt:"بازگشت →",matchingVerses:"آیات مطابق",loadingTxt:"در حال بارگذاری…",libCatZiyarat:"زیارات",libCatDua:"دعاها",libCatTaqibat:"تعقیبات نماز",igNote:"همهٔ ویدیوها در اینستاگرام باز می‌شوند — چیزی در این برنامه دانلود یا میزبانی نمی‌شود.",watchIG:"تماشا در اینستاگرام",duasSub:"متن‌های کامل عربی با ترجمهٔ انگلیسی خودمان. بدون گزیده.",videosSub:"ویدیوهای زیارت و پوشش زندهٔ حرم‌ها در صفحهٔ اینستاگرام @_ibnemurtaza منتشر می‌شوند. این کارت‌ها اینستاگرام را باز می‌کنند."}
+en:{navAudio:"Audio",navQuran:"Quran",quranTitle:"The Holy Quran",quranSub:"The complete Quran — 114 surahs, 6,236 verses (Uthmani script). Translations: English by Marmaduke Pickthall (1930, public domain) and Urdu by Fateh Muhammad Jalandhry (via Al Quran Cloud). In the reader, choose Arabic only, English, Urdu, or both — your choice is remembered.",quranSearchPh:"Search Arabic text, or a surah name…",photoCredits:"Photo credits",creditsNote:"Shrine and city photographs are from Wikimedia Commons and are used under their free licences:",urduComing:"Urdu translation coming soon — the full Arabic text above is complete.",arabicOnly:"Arabic only",backTxt:"← Back",matchingVerses:"Matching verses",loadingTxt:"Loading…",libCatZiyarat:"Ziyarat",libCatDua:"Duas",libCatTaqibat:"Ta'qibat — after the prayer",igNote:"All videos open on Instagram — nothing is downloaded or hosted in this app.",watchIG:"Watch on Instagram",duasSub:"Complete texts — full Arabic, with our own English translations (Urdu available for several; the rest are marked “coming”). No excerpts.",videosSub:"Ziyarat videos, live shrine coverage and recitations are published on the Instagram page @_ibnemurtaza. These cards open Instagram."},
+ur:{navAudio:"آڈیو",navQuran:"قرآن",quranTitle:"قرآنِ مجید",quranSub:"مکمل قرآن — 114 سورتیں، 6,236 آیات (رسمِ عثمانی)۔ ترجمے: انگریزی محمد مارماڈیوک پکتھال (1930ء، پبلک ڈومین) اور اردو فتح محمد جالندھری (Al Quran Cloud کے ذریعے)۔ ریڈر میں صرف عربی، انگریزی، اردو یا دونوں منتخب کریں — آپ کی پسند محفوظ رہے گی۔",quranSearchPh:"عربی متن یا سورت کا نام تلاش کریں…",photoCredits:"تصاویر کے کریڈٹ",creditsNote:"حرم اور شہروں کی تصاویر Wikimedia Commons سے ان کے آزاد لائسنس کے تحت استعمال ہوئی ہیں:",urduComing:"اردو ترجمہ جلد آئے گا — اوپر مکمل عربی متن موجود ہے۔",arabicOnly:"صرف عربی",backTxt:"← واپس",matchingVerses:"ملتی ہوئی آیات",loadingTxt:"لوڈ ہو رہا ہے…",libCatZiyarat:"زیارات",libCatDua:"دعائیں",libCatTaqibat:"تعقیباتِ نماز",igNote:"تمام ویڈیوز انسٹاگرام پر کھلتی ہیں — اس ایپ میں کچھ ڈاؤن لوڈ یا ہوسٹ نہیں ہوتا۔",watchIG:"انسٹاگرام پر دیکھیں",duasSub:"مکمل متن — مکمل عربی، ہمارے اپنے انگریزی ترجمے کے ساتھ (کئی دعاؤں کا اردو ترجمہ بھی موجود ہے؛ باقی “جلد” نشان زد ہیں)۔ کوئی خلاصہ نہیں۔",videosSub:"زیارت کی ویڈیوز، حرم کی لائیو کوریج اور تلاوتیں انسٹاگرام پیج @_ibnemurtaza پر شائع ہوتی ہیں۔ یہ کارڈز انسٹاگرام کھولتے ہیں۔"},
+ar:{navAudio:"الصوتيات",navQuran:"القرآن",quranTitle:"القرآن الكريم",quranSub:"القرآن كاملاً — 114 سورة، 6,236 آية (بالرسم العثماني). الترجمات: الإنجليزية لمحمد بيكثال (1930، ملكية عامة) والأردية لفتح محمد جالندهري (عبر Al Quran Cloud). في القارئ اختر العربية فقط أو الإنجليزية أو الأردية أو كليهما.",quranSearchPh:"ابحث في النص العربي أو اسم سورة…",photoCredits:"حقوق الصور",creditsNote:"صور الأضرحة والمدن من ويكيميديا كومنز وتُستخدم بموجب رخصها الحرة:",urduComing:"الترجمة الأردية قادمة قريباً — النص العربي الكامل أعلاه.",arabicOnly:"العربية فقط",backTxt:"عودة →",matchingVerses:"آيات مطابقة",loadingTxt:"جارٍ التحميل…",libCatZiyarat:"الزيارات",libCatDua:"الأدعية",libCatTaqibat:"تعقيبات الصلاة",igNote:"جميع مقاطع الفيديو تُفتح على إنستغرام — لا يُنزَّل أو يُستضاف شيء في هذا التطبيق.",watchIG:"شاهد على إنستغرام",duasSub:"النصوص كاملة بالعربية مع ترجمتنا الإنجليزية الخاصة. لا مقتطفات.",videosSub:"تُنشر فيديوهات الزيارة والتغطية المباشرة للأضرحة على صفحة إنستغرام @_ibnemurtaza. هذه البطاقات تفتح إنستغرام."},
+fa:{navAudio:"صوتی",navQuran:"قرآن",quranTitle:"قرآن کریم",quranSub:"قرآن کامل — 114 سوره، 6,236 آیه (رسم عثمانی). ترجمه‌ها: انگلیسی محمد پیکتال (1930، مالکیت عمومی) و اردو فتح محمد جالندهری (از طریق Al Quran Cloud). در خواننده، فقط عربی، انگلیسی، اردو یا هر دو را انتخاب کنید.",quranSearchPh:"جستجو در متن عربی یا نام سوره…",photoCredits:"اعتبار عکس‌ها",creditsNote:"عکس‌های حرم‌ها و شهرها از ویکی‌مدیا کامنز و تحت مجوزهای آزاد آن‌ها استفاده شده‌اند:",urduComing:"ترجمهٔ اردو به‌زودی — متن کامل عربی در بالا موجود است.",arabicOnly:"فقط عربی",backTxt:"بازگشت →",matchingVerses:"آیات مطابق",loadingTxt:"در حال بارگذاری…",libCatZiyarat:"زیارات",libCatDua:"دعاها",libCatTaqibat:"تعقیبات نماز",igNote:"همهٔ ویدیوها در اینستاگرام باز می‌شوند — چیزی در این برنامه دانلود یا میزبانی نمی‌شود.",watchIG:"تماشا در اینستاگرام",duasSub:"متن‌های کامل عربی با ترجمهٔ انگلیسی خودمان. بدون گزیده.",videosSub:"ویدیوهای زیارت و پوشش زندهٔ حرم‌ها در صفحهٔ اینستاگرام @_ibnemurtaza منتشر می‌شوند. این کارت‌ها اینستاگرام را باز می‌کنند."}
 };
 for(const L in X18N){ if(I18N[L]) Object.assign(I18N[L], X18N[L]); }
 
@@ -1754,7 +1755,7 @@ function setV5Titles(){
   set("itinTitle", "One-day ziyarat plans", "ایک دن کے زیارت منصوبے");
   set("itinSub", "Step-by-step days built from this app's own sites. Tap a site name to open it, and a dua chip to read that dua or ziyarat.", "اس ایپ کے اپنے مقامات سے ترتیب دیے گئے مرحلہ وار دن۔ مقام کے نام پر چھو کر اسے کھولیں، اور دعا کے بٹن سے وہ دعا یا زیارت پڑھیں۔");
   set("audioTitle", "Audio", "آڈیو");
-  set("audioSub", "Recitations by Ali Fani open on YouTube (links only — nothing is downloaded or hosted). For offline listening, use the read-aloud button in the reader.", "علی فانی کی تلاوتیں یوٹیوب پر کھلتی ہیں (صرف لنکس — کچھ ڈاؤن لوڈ یا ہوسٹ نہیں ہوتا)۔ آف لائن سننے کے لیے ریڈر کا خودکار تلاوت بٹن استعمال کریں۔");
+  set("audioSub", "Recitations bundled in this app play right here — tap “Save for offline” to keep a recording on the phone for listening without internet. Ali Fani recitations open on YouTube (links only — nothing is downloaded or hosted).", "اس ایپ میں شامل تلاوتیں یہیں چلتی ہیں — ”آف لائن کے لیے محفوظ“ دبا کر ریکارڈنگ فون میں رکھ لیں تاکہ بغیر انٹرنیٹ کے بھی سنی جا سکے۔ علی فانی کی تلاوتیں یوٹیوب پر کھلتی ہیں (صرف لنکس — کچھ ڈاؤن لوڈ یا ہوسٹ نہیں ہوتا)۔");
   const tts = $("#ttsBtn"); if(tts) tts.textContent = "🔊 " + L5("Listen", "سنیں");
   const ds = $("#dirSearch"); if(ds) ds.placeholder = L5("Search a name or place…", "نام یا جگہ تلاش کریں…");
 }
@@ -1770,6 +1771,104 @@ $$(".langbar button").forEach(b => b.addEventListener("click", ()=>{
     paintMethod();
   }, 0);
 }));
+</script>
+<script>
+"use strict";
+/* =================== ZIYARAT MAPS v5.1 — AUDIO FIX ===================
+   - Bundled, lawfully-licensed recitations with real in-app players
+     (audio.json "offline" list), shown FIRST in the Audio view.
+   - "Save for offline" stores the file in the zm-audio-v5-1 runtime
+     cache (the service worker serves /audio/ cache-first from it).
+   - Matching library rows get a Play button that opens the Audio
+     view and starts that same file. Ali Fani YouTube link cards and
+     the device read-aloud (TTS) fallback are kept.                  */
+const AUD_CACHE51 = "zm-audio-v5-1";
+let pendingPlay51 = null;
+
+renderAudio = function(){
+  const el = $("#audioList"); if(!el || !AUD) return;
+  const bundled = (AUD.offline || []).filter(f => f && f.file);
+  let h = `<h3 class="cathead">${L5("Recitations in this app", "اس ایپ میں تلاوتیں")}</h3>`;
+  if(bundled.length){
+    h += bundled.map((f, i) =>
+      `<div class="dua-row" id="aud-${esc(f.duaId || String(i))}" style="cursor:default;display:block">
+         <span><b>${esc(LANG === "ur" && f.title_ur ? f.title_ur : f.title_en)}</b>
+         <small>${esc(f.reciter || "")}${f.duration ? " • " + esc(f.duration) : ""}${f.size ? " • " + esc(f.size) : ""}</small></span>
+         <audio controls preload="none" src="${esc(f.file)}" style="width:100%;margin-top:6px"></audio>
+         <span style="display:flex;gap:8px;align-items:center;margin-top:6px;flex-wrap:wrap">
+           <button class="fbtn" data-save-audio="${i}">${L5("Save for offline", "آف لائن کے لیے محفوظ")}</button>
+           <small>${L5("Reciter", "قاری")}: ${esc(f.reciter || "—")} • ${esc(f.license || "")} •
+             <a href="${esc(f.source || "#")}" target="_blank" rel="noopener">${L5("Source & licence", "ماخذ و لائسنس")}</a></small>
+         </span>
+       </div>`).join("");
+  } else {
+    h += `<p class="note">${L5("No recordings are bundled yet.", "ابھی کوئی ریکارڈنگ شامل نہیں۔")}</p>`;
+  }
+  if(AUD.pending_en) h += `<p class="note">${esc(LANG === "ur" ? AUD.pending_ur : AUD.pending_en)}</p>`;
+  h += `<h3 class="cathead">${L5("Ali Fani — recitations (links, online)", "علی فانی — تلاوتیں (لنکس، آن لائن)")}</h3>
+     <p class="note">${esc(LANG === "ur" ? AUD.note_ur : AUD.note_en)}</p>` +
+    AUD.aliFani.map(c =>
+      `<a class="ig-card" target="_blank" rel="noopener" href="${esc(c.href)}">
+         <span class="ig-ic">🎧</span>
+         <span class="ig-tx"><b>${esc(LANG === "ur" ? c.title_ur : c.title_en)}</b><small>YouTube</small></span>
+         <span class="play">›</span></a>`).join("") +
+    `<h3 class="cathead">${L5("Listen offline — read-aloud", "آف لائن سنیں — خودکار تلاوت")}</h3>
+     <p class="note">${L5("Open any dua, ziyarat or book page and tap the 🔊 Listen button in the reader: your device reads the text aloud in its own voice — this works offline too (an Arabic voice pack may need to be installed on the phone; it is the device's voice, not the reciter's).",
+                          "کوئی بھی دعا، زیارت یا کتاب کھول کر ریڈر میں 🔊 سنیں بٹن دبائیں: آپ کا فون متن کو اپنی آواز میں پڑھ کر سناتا ہے — یہ آف لائن بھی چلتا ہے (فون میں عربی وائس پیک درکار ہو سکتا ہے؛ یہ ڈیوائس کی آواز ہے، قاری کی نہیں)۔")}</p>`;
+  el.innerHTML = h;
+  $$("#audioList [data-save-audio]").forEach(b => {
+    const f = bundled[+b.dataset.saveAudio]; if(!f) return;
+    const label = L5("Save for offline", "آف لائن کے لیے محفوظ");
+    const paint = saved => { b.textContent = saved ? "✓ " + L5("Saved for offline", "آف لائن محفوظ ہے") : label; };
+    if("caches" in window){
+      caches.open(AUD_CACHE51).then(c => c.match(f.file)).then(hit => paint(!!hit)).catch(() => {});
+    }
+    b.addEventListener("click", () => {
+      if(!("caches" in window)) return;
+      b.textContent = "…";
+      caches.open(AUD_CACHE51).then(c => c.add(f.file)).then(() => paint(true))
+        .catch(() => { b.textContent = "✕"; });
+    });
+  });
+  if(pendingPlay51){
+    const pid = pendingPlay51; pendingPlay51 = null;
+    const target = document.getElementById("aud-" + pid);
+    if(target){
+      target.scrollIntoView({block: "center"});
+      const au = target.querySelector("audio");
+      if(au){ const p = au.play(); if(p && p.catch) p.catch(() => {}); }
+    }
+  }
+};
+
+function playBundled51(duaId){
+  pendingPlay51 = duaId;
+  loadAudio().then(() => { showView("audio"); });
+}
+
+/* Play buttons on library rows that have a bundled recitation. */
+const _renderDuas51 = renderDuas;
+renderDuas = function(){
+  _renderDuas51();
+  loadAudio().then(() => {
+    if(!AUD || !AUD.offline) return;
+    const byId = {};
+    AUD.offline.forEach(f => { if(f && f.duaId) byId[f.duaId] = f; });
+    $$("#duaList .dua-row").forEach(row => {
+      const id = row.dataset.entry;
+      if(id && byId[id] && !row.querySelector("[data-play51]")){
+        const b = document.createElement("button");
+        b.type = "button";
+        b.className = "fbtn";
+        b.dataset.play51 = id;
+        b.textContent = "▶ " + L5("Play", "چلائیں");
+        b.addEventListener("click", ev => { ev.stopPropagation(); playBundled51(id); });
+        row.appendChild(b);
+      }
+    });
+  }).catch(() => {});
+};
+try{ renderDuas(); }catch(e){}
 </script>
 
 </body>

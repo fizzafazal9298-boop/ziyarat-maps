@@ -8,8 +8,9 @@
  *  - APIs (Aladhan) and everything else: network-first with cache fallback
  *    for navigations only.
  */
-const CACHE = "ziyarat-maps-v5-r1";
-const IMGCACHE = "ziyarat-maps-v5-images";
+const CACHE = "ziyarat-maps-v5-1-r1";
+const IMGCACHE = "ziyarat-maps-v5-1-images";
+const AUDCACHE = "zm-audio-v5-1";
 const SHELL = ["./", "./index.html", "./manifest.json", "./icon.svg", "./quran.json", "./quran-ur.json", "./duas.json", "./photos.json", "./books.json", "./sahifa.json", "./mojzay.json", "./directory.json", "./itineraries.json", "./audio.json"];
 
 self.addEventListener("install", event => {
@@ -24,7 +25,7 @@ self.addEventListener("install", event => {
 self.addEventListener("activate", event => {
   event.waitUntil(
     caches.keys()
-      .then(keys => Promise.all(keys.filter(k => k !== CACHE && k !== IMGCACHE && k !== "zm-audio-v5").map(k => caches.delete(k))))
+      .then(keys => Promise.all(keys.filter(k => k !== CACHE && k !== IMGCACHE && k !== AUDCACHE).map(k => caches.delete(k))))
       .then(() => self.clients.claim())
   );
 });
@@ -49,6 +50,20 @@ self.addEventListener("fetch", event => {
         caches.open(CACHE).then(c => c.put(req, copy)).catch(() => {});
         return res;
       }))
+    );
+    return;
+  }
+
+  // Bundled recitation audio: cache-first in its own runtime cache (never
+  // precached — files are large; the Audio view's "Save for offline" button
+  // and first plays populate it). A plain fetch of the URL is used so media
+  // Range requests never poison the cache with partial responses.
+  if (url.origin === self.location.origin && url.pathname.includes("/audio/")) {
+    event.respondWith(
+      caches.open(AUDCACHE).then(cache => cache.match(url.href).then(hit => hit || fetch(url.href).then(res => {
+        if (res && res.ok) { const copy = res.clone(); cache.put(url.href, copy).catch(() => {}); }
+        return res;
+      }).catch(() => Response.error())))
     );
     return;
   }
