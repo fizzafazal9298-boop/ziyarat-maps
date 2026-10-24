@@ -8,9 +8,9 @@
  *  - APIs (Aladhan) and everything else: network-first with cache fallback
  *    for navigations only.
  */
-const CACHE = "ziyarat-maps-v3-r1";
-const IMGCACHE = "ziyarat-maps-v3-images";
-const SHELL = ["./", "./index.html", "./manifest.json", "./icon.svg", "./quran.json", "./duas.json"];
+const CACHE = "ziyarat-maps-v4-r1";
+const IMGCACHE = "ziyarat-maps-v4-images";
+const SHELL = ["./", "./index.html", "./manifest.json", "./icon.svg", "./quran.json", "./quran-ur.json", "./duas.json", "./photos.json"];
 
 self.addEventListener("install", event => {
   event.waitUntil(
