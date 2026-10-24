@@ -208,6 +208,7 @@ footer.small{max-width:960px; margin:0 auto; padding:0 14px 18px; color:var(--mu
 .fbtn.on{background:var(--gold);color:#231a00;border-color:var(--gold)}
 .rbody .arabic{font-size:var(--rfs,30px);line-height:2.1}
 .bismillah{text-align:center;font-size:calc(var(--rfs,30px)*1.02);color:var(--emerald);margin:8px 0 16px;direction:rtl}
+.surah-head{text-align:center;font-weight:700;color:var(--emerald);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:10px 6px;margin:22px 0 6px;font-size:1.05rem}
 .ayah{font-size:var(--rfs,30px);line-height:2.15;direction:rtl;text-align:justify;margin:0 0 4px}
 .anum{color:#b8912a;font-size:.6em;white-space:nowrap}
 .ayah.hl{background:#fdf3d0;border-radius:8px}
@@ -327,9 +328,14 @@ footer.small{max-width:960px; margin:0 auto; padding:0 14px 18px; color:var(--mu
   <section class="view" id="view-quran">
     <h2 class="sec-title" data-i="quranTitle"></h2>
     <p class="sec-sub" data-i="quranSub"></p>
+    <div class="chips" id="qModeChips">
+      <button class="fbtn on" id="qModeSurah" data-i="qModeSurah"></button>
+      <button class="fbtn" id="qModePara" data-i="qModePara"></button>
+    </div>
     <input class="search" id="qSearch" type="search" data-i-ph="quranSearchPh">
     <div id="qResults"></div>
     <div id="surahList" style="margin-top:10px"></div>
+    <div id="paraList" style="margin-top:10px;display:none"></div>
   </section>
 
   <!-- ================= READER (v3) ================= -->
@@ -458,7 +464,7 @@ footer.small{max-width:960px; margin:0 auto; padding:0 14px 18px; color:var(--mu
   </section>
 </main>
 
-<footer class="small">Ziyarat Maps v5.1 — <span data-i="footerNote"></span></footer>
+<footer class="small">Ziyarat Maps v5.2 — <span data-i="footerNote"></span></footer>
 
 <!-- site detail sheet -->
 <div id="sheetWrap" role="dialog" aria-modal="true">
@@ -1043,10 +1049,10 @@ if("serviceWorker" in navigator){
 
 /* ---------- extra UI strings ---------- */
 const X18N = {
-en:{navAudio:"Audio",navQuran:"Quran",quranTitle:"The Holy Quran",quranSub:"The complete Quran — 114 surahs, 6,236 verses (Uthmani script). Translations: English by Marmaduke Pickthall (1930, public domain) and Urdu by Fateh Muhammad Jalandhry (via Al Quran Cloud). In the reader, choose Arabic only, English, Urdu, or both — your choice is remembered.",quranSearchPh:"Search Arabic text, or a surah name…",photoCredits:"Photo credits",creditsNote:"Shrine and city photographs are from Wikimedia Commons and are used under their free licences:",urduComing:"Urdu translation coming soon — the full Arabic text above is complete.",arabicOnly:"Arabic only",backTxt:"← Back",matchingVerses:"Matching verses",loadingTxt:"Loading…",libCatZiyarat:"Ziyarat",libCatDua:"Duas",libCatTaqibat:"Ta'qibat — after the prayer",igNote:"All videos open on Instagram — nothing is downloaded or hosted in this app.",watchIG:"Watch on Instagram",duasSub:"Complete texts — full Arabic, with our own English translations (Urdu available for several; the rest are marked “coming”). No excerpts.",videosSub:"Ziyarat videos, live shrine coverage and recitations are published on the Instagram page @_ibnemurtaza. These cards open Instagram."},
-ur:{navAudio:"آڈیو",navQuran:"قرآن",quranTitle:"قرآنِ مجید",quranSub:"مکمل قرآن — 114 سورتیں، 6,236 آیات (رسمِ عثمانی)۔ ترجمے: انگریزی محمد مارماڈیوک پکتھال (1930ء، پبلک ڈومین) اور اردو فتح محمد جالندھری (Al Quran Cloud کے ذریعے)۔ ریڈر میں صرف عربی، انگریزی، اردو یا دونوں منتخب کریں — آپ کی پسند محفوظ رہے گی۔",quranSearchPh:"عربی متن یا سورت کا نام تلاش کریں…",photoCredits:"تصاویر کے کریڈٹ",creditsNote:"حرم اور شہروں کی تصاویر Wikimedia Commons سے ان کے آزاد لائسنس کے تحت استعمال ہوئی ہیں:",urduComing:"اردو ترجمہ جلد آئے گا — اوپر مکمل عربی متن موجود ہے۔",arabicOnly:"صرف عربی",backTxt:"← واپس",matchingVerses:"ملتی ہوئی آیات",loadingTxt:"لوڈ ہو رہا ہے…",libCatZiyarat:"زیارات",libCatDua:"دعائیں",libCatTaqibat:"تعقیباتِ نماز",igNote:"تمام ویڈیوز انسٹاگرام پر کھلتی ہیں — اس ایپ میں کچھ ڈاؤن لوڈ یا ہوسٹ نہیں ہوتا۔",watchIG:"انسٹاگرام پر دیکھیں",duasSub:"مکمل متن — مکمل عربی، ہمارے اپنے انگریزی ترجمے کے ساتھ (کئی دعاؤں کا اردو ترجمہ بھی موجود ہے؛ باقی “جلد” نشان زد ہیں)۔ کوئی خلاصہ نہیں۔",videosSub:"زیارت کی ویڈیوز، حرم کی لائیو کوریج اور تلاوتیں انسٹاگرام پیج @_ibnemurtaza پر شائع ہوتی ہیں۔ یہ کارڈز انسٹاگرام کھولتے ہیں۔"},
-ar:{navAudio:"الصوتيات",navQuran:"القرآن",quranTitle:"القرآن الكريم",quranSub:"القرآن كاملاً — 114 سورة، 6,236 آية (بالرسم العثماني). الترجمات: الإنجليزية لمحمد بيكثال (1930، ملكية عامة) والأردية لفتح محمد جالندهري (عبر Al Quran Cloud). في القارئ اختر العربية فقط أو الإنجليزية أو الأردية أو كليهما.",quranSearchPh:"ابحث في النص العربي أو اسم سورة…",photoCredits:"حقوق الصور",creditsNote:"صور الأضرحة والمدن من ويكيميديا كومنز وتُستخدم بموجب رخصها الحرة:",urduComing:"الترجمة الأردية قادمة قريباً — النص العربي الكامل أعلاه.",arabicOnly:"العربية فقط",backTxt:"عودة →",matchingVerses:"آيات مطابقة",loadingTxt:"جارٍ التحميل…",libCatZiyarat:"الزيارات",libCatDua:"الأدعية",libCatTaqibat:"تعقيبات الصلاة",igNote:"جميع مقاطع الفيديو تُفتح على إنستغرام — لا يُنزَّل أو يُستضاف شيء في هذا التطبيق.",watchIG:"شاهد على إنستغرام",duasSub:"النصوص كاملة بالعربية مع ترجمتنا الإنجليزية الخاصة. لا مقتطفات.",videosSub:"تُنشر فيديوهات الزيارة والتغطية المباشرة للأضرحة على صفحة إنستغرام @_ibnemurtaza. هذه البطاقات تفتح إنستغرام."},
-fa:{navAudio:"صوتی",navQuran:"قرآن",quranTitle:"قرآن کریم",quranSub:"قرآن کامل — 114 سوره، 6,236 آیه (رسم عثمانی). ترجمه‌ها: انگلیسی محمد پیکتال (1930، مالکیت عمومی) و اردو فتح محمد جالندهری (از طریق Al Quran Cloud). در خواننده، فقط عربی، انگلیسی، اردو یا هر دو را انتخاب کنید.",quranSearchPh:"جستجو در متن عربی یا نام سوره…",photoCredits:"اعتبار عکس‌ها",creditsNote:"عکس‌های حرم‌ها و شهرها از ویکی‌مدیا کامنز و تحت مجوزهای آزاد آن‌ها استفاده شده‌اند:",urduComing:"ترجمهٔ اردو به‌زودی — متن کامل عربی در بالا موجود است.",arabicOnly:"فقط عربی",backTxt:"بازگشت →",matchingVerses:"آیات مطابق",loadingTxt:"در حال بارگذاری…",libCatZiyarat:"زیارات",libCatDua:"دعاها",libCatTaqibat:"تعقیبات نماز",igNote:"همهٔ ویدیوها در اینستاگرام باز می‌شوند — چیزی در این برنامه دانلود یا میزبانی نمی‌شود.",watchIG:"تماشا در اینستاگرام",duasSub:"متن‌های کامل عربی با ترجمهٔ انگلیسی خودمان. بدون گزیده.",videosSub:"ویدیوهای زیارت و پوشش زندهٔ حرم‌ها در صفحهٔ اینستاگرام @_ibnemurtaza منتشر می‌شوند. این کارت‌ها اینستاگرام را باز می‌کنند."}
+en:{qModeSurah:"By Surah",qModePara:"By Para (Juz)",paraWord:"Para",startsTxt:"Starts",navAudio:"Audio",navQuran:"Quran",quranTitle:"The Holy Quran",quranSub:"The complete Quran — 114 surahs, 6,236 verses (Uthmani script). Translations: English by Marmaduke Pickthall (1930, public domain) and Urdu by Fateh Muhammad Jalandhry (via Al Quran Cloud). In the reader, choose Arabic only, English, Urdu, or both — your choice is remembered.",quranSearchPh:"Search Arabic text, or a surah name…",photoCredits:"Photo credits",creditsNote:"Shrine and city photographs are from Wikimedia Commons and are used under their free licences:",urduComing:"Urdu translation coming soon — the full Arabic text above is complete.",arabicOnly:"Arabic only",backTxt:"← Back",matchingVerses:"Matching verses",loadingTxt:"Loading…",libCatZiyarat:"Ziyarat",libCatDua:"Duas",libCatTaqibat:"Ta'qibat — after the prayer",igNote:"All videos open on Instagram — nothing is downloaded or hosted in this app.",watchIG:"Watch on Instagram",duasSub:"Complete texts — full Arabic, with our own English translations (Urdu available for several; the rest are marked “coming”). No excerpts.",videosSub:"Ziyarat videos, live shrine coverage and recitations are published on the Instagram page @_ibnemurtaza. These cards open Instagram."},
+ur:{qModeSurah:"سورت وار",qModePara:"پارہ وار",paraWord:"پارہ",startsTxt:"آغاز",navAudio:"آڈیو",navQuran:"قرآن",quranTitle:"قرآنِ مجید",quranSub:"مکمل قرآن — 114 سورتیں، 6,236 آیات (رسمِ عثمانی)۔ ترجمے: انگریزی محمد مارماڈیوک پکتھال (1930ء، پبلک ڈومین) اور اردو فتح محمد جالندھری (Al Quran Cloud کے ذریعے)۔ ریڈر میں صرف عربی، انگریزی، اردو یا دونوں منتخب کریں — آپ کی پسند محفوظ رہے گی۔",quranSearchPh:"عربی متن یا سورت کا نام تلاش کریں…",photoCredits:"تصاویر کے کریڈٹ",creditsNote:"حرم اور شہروں کی تصاویر Wikimedia Commons سے ان کے آزاد لائسنس کے تحت استعمال ہوئی ہیں:",urduComing:"اردو ترجمہ جلد آئے گا — اوپر مکمل عربی متن موجود ہے۔",arabicOnly:"صرف عربی",backTxt:"← واپس",matchingVerses:"ملتی ہوئی آیات",loadingTxt:"لوڈ ہو رہا ہے…",libCatZiyarat:"زیارات",libCatDua:"دعائیں",libCatTaqibat:"تعقیباتِ نماز",igNote:"تمام ویڈیوز انسٹاگرام پر کھلتی ہیں — اس ایپ میں کچھ ڈاؤن لوڈ یا ہوسٹ نہیں ہوتا۔",watchIG:"انسٹاگرام پر دیکھیں",duasSub:"مکمل متن — مکمل عربی، ہمارے اپنے انگریزی ترجمے کے ساتھ (کئی دعاؤں کا اردو ترجمہ بھی موجود ہے؛ باقی “جلد” نشان زد ہیں)۔ کوئی خلاصہ نہیں۔",videosSub:"زیارت کی ویڈیوز، حرم کی لائیو کوریج اور تلاوتیں انسٹاگرام پیج @_ibnemurtaza پر شائع ہوتی ہیں۔ یہ کارڈز انسٹاگرام کھولتے ہیں۔"},
+ar:{qModeSurah:"حسب السورة",qModePara:"حسب الجزء",paraWord:"الجزء",startsTxt:"يبدأ من",navAudio:"الصوتيات",navQuran:"القرآن",quranTitle:"القرآن الكريم",quranSub:"القرآن كاملاً — 114 سورة، 6,236 آية (بالرسم العثماني). الترجمات: الإنجليزية لمحمد بيكثال (1930، ملكية عامة) والأردية لفتح محمد جالندهري (عبر Al Quran Cloud). في القارئ اختر العربية فقط أو الإنجليزية أو الأردية أو كليهما.",quranSearchPh:"ابحث في النص العربي أو اسم سورة…",photoCredits:"حقوق الصور",creditsNote:"صور الأضرحة والمدن من ويكيميديا كومنز وتُستخدم بموجب رخصها الحرة:",urduComing:"الترجمة الأردية قادمة قريباً — النص العربي الكامل أعلاه.",arabicOnly:"العربية فقط",backTxt:"عودة →",matchingVerses:"آيات مطابقة",loadingTxt:"جارٍ التحميل…",libCatZiyarat:"الزيارات",libCatDua:"الأدعية",libCatTaqibat:"تعقيبات الصلاة",igNote:"جميع مقاطع الفيديو تُفتح على إنستغرام — لا يُنزَّل أو يُستضاف شيء في هذا التطبيق.",watchIG:"شاهد على إنستغرام",duasSub:"النصوص كاملة بالعربية مع ترجمتنا الإنجليزية الخاصة. لا مقتطفات.",videosSub:"تُنشر فيديوهات الزيارة والتغطية المباشرة للأضرحة على صفحة إنستغرام @_ibnemurtaza. هذه البطاقات تفتح إنستغرام."},
+fa:{qModeSurah:"بر اساس سوره",qModePara:"بر اساس جزء",paraWord:"جزء",startsTxt:"آغاز از",navAudio:"صوتی",navQuran:"قرآن",quranTitle:"قرآن کریم",quranSub:"قرآن کامل — 114 سوره، 6,236 آیه (رسم عثمانی). ترجمه‌ها: انگلیسی محمد پیکتال (1930، مالکیت عمومی) و اردو فتح محمد جالندهری (از طریق Al Quran Cloud). در خواننده، فقط عربی، انگلیسی، اردو یا هر دو را انتخاب کنید.",quranSearchPh:"جستجو در متن عربی یا نام سوره…",photoCredits:"اعتبار عکس‌ها",creditsNote:"عکس‌های حرم‌ها و شهرها از ویکی‌مدیا کامنز و تحت مجوزهای آزاد آن‌ها استفاده شده‌اند:",urduComing:"ترجمهٔ اردو به‌زودی — متن کامل عربی در بالا موجود است.",arabicOnly:"فقط عربی",backTxt:"بازگشت →",matchingVerses:"آیات مطابق",loadingTxt:"در حال بارگذاری…",libCatZiyarat:"زیارات",libCatDua:"دعاها",libCatTaqibat:"تعقیبات نماز",igNote:"همهٔ ویدیوها در اینستاگرام باز می‌شوند — چیزی در این برنامه دانلود یا میزبانی نمی‌شود.",watchIG:"تماشا در اینستاگرام",duasSub:"متن‌های کامل عربی با ترجمهٔ انگلیسی خودمان. بدون گزیده.",videosSub:"ویدیوهای زیارت و پوشش زندهٔ حرم‌ها در صفحهٔ اینستاگرام @_ibnemurtaza منتشر می‌شوند. این کارت‌ها اینستاگرام را باز می‌کنند."}
 };
 for(const L in X18N){ if(I18N[L]) Object.assign(I18N[L], X18N[L]); }
 
@@ -1213,6 +1219,69 @@ function openSurah(n, hl){
     if(target) setTimeout(()=> target.scrollIntoView({block:"center"}), 80);
   }
 }
+/* ---------- Para (Juz) mode (v5.2) ----------
+   Standard 30-para division: [traditional Arabic name, start surah, start ayah].
+   Start points cross-checked against api.alquran.cloud /v1/juz/{n}/quran-uthmani
+   (paras 1, 2, 9, 15, 22, 30 verified 2026-10-24; all matched this table). */
+const JUZ = [
+  ["الٓمٓ",1,1],["سَيَقُولُ",2,142],["تِلْكَ الرُّسُلُ",2,253],["لَن تَنَالُوا",3,93],["وَالْمُحْصَنَاتُ",4,24],
+  ["لَا يُحِبُّ اللَّهُ",4,148],["وَإِذَا سَمِعُوا",5,82],["وَلَوْ أَنَّنَا",6,111],["قَالَ الْمَلَأُ",7,88],["وَاعْلَمُوا",8,41],
+  ["يَعْتَذِرُونَ",9,93],["وَمَا مِنْ دَابَّةٍ",11,6],["وَمَا أُبَرِّئُ",12,53],["رُبَمَا",15,1],["سُبْحَانَ الَّذِي",17,1],
+  ["قَالَ أَلَمْ",18,75],["اقْتَرَبَ",21,1],["قَدْ أَفْلَحَ",23,1],["وَقَالَ الَّذِينَ",25,21],["أَمَّنْ خَلَقَ",27,56],
+  ["اتْلُ مَا أُوحِيَ",29,46],["وَمَنْ يَقْنُتْ",33,31],["وَمَا لِيَ",36,28],["فَمَنْ أَظْلَمُ",39,32],["إِلَيْهِ يُرَدُّ",41,47],
+  ["حم",46,1],["قَالَ فَمَا خَطْبُكُمْ",51,31],["قَدْ سَمِعَ اللَّهُ",58,1],["تَبَارَكَ الَّذِي",67,1],["عَمَّ يَتَسَاءَلُونَ",78,1]
+];
+function paraSegments(j){
+  if(!QURAN) return [];
+  const ss = JUZ[j-1][1], sa = JUZ[j-1][2];
+  const next = j < 30 ? JUZ[j] : null;
+  const segs = [];
+  for(let n = ss; n <= 114; n++){
+    const s = QURAN.surahs[n-1];
+    const from = n === ss ? sa : 1;
+    let to = s.a.length;
+    if(next && next[1] === n) to = next[2] - 1;
+    if(from <= to) segs.push({s, from, to});
+    if(next ? n >= next[1] : n === 114) break;
+  }
+  return segs;
+}
+function paraCount(j){ return paraSegments(j).reduce((a, g) => a + (g.to - g.from + 1), 0); }
+function openPara(j){
+  if(!QURAN) return;
+  reader.kind = "para"; reader.para = j; reader.surah = null; reader.hl = 0; reader.back = "quran";
+  reader.tr = (localStorage.getItem("zmTrQuran") || "en");
+  renderReader(); showView("reader");
+}
+function renderParaList(){
+  const el = $("#paraList");
+  if(!el) return;
+  if(!QURAN){ el.innerHTML = `<p class="note">${t("loadingTxt")}</p>`; return; }
+  el.innerHTML = JUZ.map((jz, i) => {
+    const j = i + 1, s = QURAN.surahs[jz[1]-1];
+    return `<button class="surah-row" data-j="${j}">
+      <span class="num">${j}</span>
+      <span><b>${esc(t("paraWord"))} ${j}</b><small>${esc(t("startsTxt"))}: ${esc(s.tr)} ${jz[2]} · ${paraCount(j)}</small></span>
+      <span class="arn">${esc(jz[0])}</span>
+    </button>`;
+  }).join("");
+  $$("#paraList .surah-row").forEach(b => b.addEventListener("click", ()=> openPara(+b.dataset.j)));
+}
+let quranMode = "surah";
+function setQuranMode(m){
+  quranMode = m;
+  const para = m === "para";
+  $("#qModeSurah").classList.toggle("on", !para);
+  $("#qModePara").classList.toggle("on", para);
+  $("#qSearch").style.display = para ? "none" : "";
+  $("#qResults").style.display = para ? "none" : "";
+  $("#surahList").style.display = para ? "none" : "";
+  $("#paraList").style.display = para ? "" : "none";
+  if(para) renderParaList();
+}
+$("#qModeSurah").addEventListener("click", ()=> setQuranMode("surah"));
+$("#qModePara").addEventListener("click", ()=> setQuranMode("para"));
+
 function renderReader(){
   const body = $("#readerBody");
   body.style.setProperty("--rfs", reader.font + "px");
@@ -1255,6 +1324,35 @@ function renderReader(){
       return `<p class="ayah${reader.hl === i+1 ? " hl" : ""}" id="ayah-${i+1}">${esc(a)} <span class="anum">﴿${i+1}﴾</span></p>` + tr;
     }).join("");
     body.innerHTML = html;
+  } else if(reader.kind === "para"){
+    const j = reader.para, jz = JUZ[j-1];
+    const startSurah = QURAN.surahs[jz[1]-1];
+    const segs = paraSegments(j);
+    const total = segs.reduce((a, g) => a + (g.to - g.from + 1), 0);
+    $("#readerTitle").textContent = t("paraWord") + " " + j + " — " + jz[0];
+    $("#readerSub").textContent = "Juz " + j + " / 30 · " + t("startsTxt") + ": " + startSurah.tr + " " + jz[2] + " · " + total + " آيات";
+    $("#trUrBtn").style.display = "";
+    note.style.display = "block";
+    note.textContent = "Translations — English: Marmaduke Pickthall (1930, public domain) · Urdu: Fateh Muhammad Jalandhry (via Al Quran Cloud). Pick Arabic only, English, Urdu, or both — your choice is remembered.";
+    if((reader.tr === "ur" || reader.tr === "both") && !QURAN_UR && !quranUrLoading) ensureQuranUr();
+    let html = "";
+    for(const g of segs){
+      const s = g.s;
+      const urArr = QURAN_UR ? QURAN_UR.surahs[s.n-1].u : null;
+      if(g.from === 1){
+        html += `<div class="surah-head">${s.n}. ${esc(s.tr)} — ${esc(s.en)} · ${esc(s.ar)}</div>`;
+        if(s.n !== 1 && s.n !== 9) html += `<div class="bismillah">بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</div>`;
+      }
+      for(let a = g.from; a <= g.to; a++){
+        const i = a - 1;
+        let tr = "";
+        if(reader.tr === "en") tr = `<p class="ayah-en">${a}. ${esc(s.e[i])}</p>`;
+        else if(reader.tr === "ur") tr = urArr ? `<p class="ayah-en urdu">${a}. ${esc(urArr[i])}</p>` : `<p class="ayah-en">${t("loadingTxt")}</p>`;
+        else if(reader.tr === "both") tr = `<p class="ayah-en">${a}. ${esc(s.e[i])}</p>` + (urArr ? `<p class="ayah-en urdu">${a}. ${esc(urArr[i])}</p>` : `<p class="ayah-en">${t("loadingTxt")}</p>`);
+        html += `<p class="ayah" id="payah-${s.n}-${a}">${esc(s.a[i])} <span class="anum">﴿${a}﴾</span></p>` + tr;
+      }
+    }
+    body.innerHTML = html;
   }
   $("#trOffBtn").textContent = t("arabicOnly");
   $("#readerBack").textContent = t("backTxt");
@@ -1264,7 +1362,7 @@ $("#fontMinus").addEventListener("click", ()=>{ reader.font = Math.max(20, reade
 $("#fontPlus").addEventListener("click", ()=>{ reader.font = Math.min(48, reader.font + 2); renderReader(); });
 function setTr(v){
   reader.tr = v;
-  try{ localStorage.setItem(reader.kind === "quran" ? "zmTrQuran" : "zmTrDua", v); }catch(e){}
+  try{ localStorage.setItem((reader.kind === "quran" || reader.kind === "para") ? "zmTrQuran" : "zmTrDua", v); }catch(e){}
   renderReader();
 }
 $("#trEnBtn").addEventListener("click", ()=> setTr("en"));
@@ -1278,13 +1376,13 @@ let QURAN_UR = null, quranUrLoading = false;
 function ensureQuranUr(){
   if(QURAN_UR || quranUrLoading) return;
   quranUrLoading = true;
-  fetch("quran-ur.json").then(r => r.json()).then(d => { QURAN_UR = d; quranUrLoading = false; if(reader.kind === "quran") renderReader(); })
+  fetch("quran-ur.json").then(r => r.json()).then(d => { QURAN_UR = d; quranUrLoading = false; if(reader.kind === "quran" || reader.kind === "para") renderReader(); })
     .catch(()=>{ quranUrLoading = false; });
 }
 function ensureQuran(){
   if(QURAN || quranLoading) return;
   quranLoading = true;
-  fetch("quran.json").then(r => r.json()).then(d => { QURAN = d; quranLoading = false; renderSurahList($("#qSearch").value || ""); })
+  fetch("quran.json").then(r => r.json()).then(d => { QURAN = d; quranLoading = false; renderSurahList($("#qSearch").value || ""); renderParaList(); })
     .catch(()=>{ quranLoading = false; const el = $("#surahList"); if(el) el.innerHTML = `<p class="note">${t("loadingTxt")} ✕</p>`; });
 }
 document.addEventListener("click", e => {
@@ -1386,6 +1484,7 @@ function ttsText(){
   if(!reader || !reader.kind) return null;
   if(reader.kind === "dua" && reader.dua) return {txt: reader.dua.arabic, lang: "ar-SA"};
   if(reader.kind === "quran" && reader.surah) return {txt: reader.surah.a.join(" "), lang: "ar-SA"};
+  if(reader.kind === "para" && reader.para && QURAN) return {txt: paraSegments(reader.para).map(g => g.s.a.slice(g.from - 1, g.to).join(" ")).join(" "), lang: "ar-SA"};
   if((reader.kind === "nahj" || reader.kind === "sahifa") && reader.book) return {txt: reader.book.arabic, lang: "ar-SA"};
   if(reader.kind === "mojzay" && reader.story) return LANG === "ur"
     ? {txt: reader.story.text_ur, lang: "ur-PK"} : {txt: reader.story.text_en, lang: "en-US"};
