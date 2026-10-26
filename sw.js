@@ -9,7 +9,7 @@
  *    for navigations only.
  */
 const CACHE = "ziyarat-maps-v5-4-r3";
-const IMGCACHE = "ziyarat-maps-v5-4-images";
+const IMGCACHE = "ziyarat-maps-v5-4-images-r2";
 const AUDCACHE = "zm-audio-v5-1";
 const SHELL = ["./", "./index.html", "./manifest.json", "./icon.svg", "./quran.json", "./quran-ur.json", "./duas.json", "./photos.json", "./books.json", "./sahifa.json", "./mojzay.json", "./directory.json", "./itineraries.json", "./audio.json"];
 
