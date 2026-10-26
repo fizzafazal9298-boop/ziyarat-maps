@@ -8,7 +8,7 @@
  *  - APIs (Aladhan) and everything else: network-first with cache fallback
  *    for navigations only.
  */
-const CACHE = "ziyarat-maps-v5-4-r1";
+const CACHE = "ziyarat-maps-v5-4-r2";
 const IMGCACHE = "ziyarat-maps-v5-4-images";
 const AUDCACHE = "zm-audio-v5-1";
 const SHELL = ["./", "./index.html", "./manifest.json", "./icon.svg", "./quran.json", "./quran-ur.json", "./duas.json", "./photos.json", "./books.json", "./sahifa.json", "./mojzay.json", "./directory.json", "./itineraries.json", "./audio.json"];
