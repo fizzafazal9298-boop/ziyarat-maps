@@ -1,351 +1,391 @@
 {
-  "about": "Burial places verified one by one against the named source for every entry; figures whose burial place could not be verified were left out.",
-  "entries": [
-    {
-      "name": "Shaykh al-Tusi",
-      "name_ur": "شیخ طوسی",
-      "city": "Najaf",
-      "place": "Mosque of Shaykh al-Tusi, beside the Imam Ali Shrine",
-      "detail": "Founder of the Najaf seminary tradition (d. 460/1067). Per his will he was buried in his own house beside the shrine, which became his mosque.",
-      "source_name": "WikiShia",
-      "source_url": "https://en.wikishia.net/view/Mosque_of_al-Shaykh_al-Tusi"
-    },
-    {
-      "name": "Sayyid Muhammad Mahdi Bahr al-Ulum",
-      "name_ur": "سید محمد مہدی بحر العلوم",
-      "city": "Najaf",
-      "place": "Beside the tomb of Shaykh al-Tusi, Najaf",
-      "detail": "The great scholar known as Bahr al-Ulum, 'Ocean of Knowledge' (d. 1212/1797), buried next to Shaykh al-Tusi, as are some of his descendants.",
-      "source_name": "WikiShia",
-      "source_url": "https://en.wikishia.net/view/Najaf"
-    },
-    {
-      "name": "Shaykh Abbas Qummi",
-      "name_ur": "شیخ عباس قمی",
-      "city": "Najaf",
-      "place": "Najaf, beside his teacher Mirza Husayn Nuri",
-      "detail": "Author of Mafatih al-Jinan, the book of duas carried by almost every pilgrim (d. 1359/1941).",
-      "source_name": "WikiShia",
-      "source_url": "https://en.wikishia.net/view/Najaf"
-    },
-    {
-      "name": "Al-Allama al-Hilli",
-      "name_ur": "علامہ حلی",
-      "city": "Najaf",
-      "place": "Inside the Imam Ali Shrine",
-      "detail": "The towering jurist of Hilla (d. 726/1325); he is buried in the shrine of Imam Ali (a.s.) in Najaf.",
-      "source_name": "WikiShia",
-      "source_url": "https://en.wikishia.net/view/Al-'Allama_al-Hilli"
-    },
-    {
-      "name": "Muqaddas Ardabili",
-      "name_ur": "مقدس اردبیلی",
-      "city": "Najaf",
-      "place": "Imam Ali Shrine, Najaf",
-      "detail": "Ahmad ibn Muhammad al-Ardabili (d. 993/1585), famous for his piety and his commentary on the Qur'an.",
-      "source_name": "Wikipedia",
-      "source_url": "https://en.wikipedia.org/wiki/Ahmad_ibn_Muhammad_Ardabili"
-    },
-    {
-      "name": "Shaykh Murtada al-Ansari",
-      "name_ur": "شیخ مرتضیٰ انصاری",
-      "city": "Najaf",
-      "place": "Imam Ali Shrine, Najaf",
-      "detail": "The 'Seal of the Jurists' (d. 1281/1864), author of al-Makasib and al-Rasa'il, teacher of a generation of scholars.",
-      "source_name": "Wikipedia",
-      "source_url": "https://en.wikipedia.org/wiki/Morteza_Ansari"
-    },
-    {
-      "name": "Akhund Muhammad Kazim Khurasani",
-      "name_ur": "آخوند محمد کاظم خراسانی",
-      "city": "Najaf",
-      "place": "Imam Ali Shrine, Najaf",
-      "detail": "Author of Kifayat al-Usul (d. 1329/1911), the standard advanced text of usul al-fiqh.",
-      "source_name": "Wikipedia",
-      "source_url": "https://en.wikipedia.org/wiki/Muhammad_Kazim_Khurasani"
-    },
-    {
-      "name": "Mirza Muhammad Husayn Na'ini",
-      "name_ur": "مرزا محمد حسین نائینی",
-      "city": "Najaf",
-      "place": "A room of the courtyard of the Imam Ali Shrine",
-      "detail": "The great usul scholar (d. 1355/1936), buried in one of the rooms surrounding the courtyard of the holy shrine.",
-      "source_name": "WikiShia",
-      "source_url": "https://en.wikishia.net/view/Muhammad_Husayn_Na'ini"
-    },
-    {
-      "name": "Sayyid Abu al-Hasan al-Isfahani",
-      "name_ur": "سید ابو الحسن اصفہانی",
-      "city": "Najaf",
-      "place": "A room of the courtyard of the Imam Ali Shrine",
-      "detail": "Marja' of his age (d. 1365/1946); after a vast funeral he was buried in a room of the shrine courtyard.",
-      "source_name": "WikiShia",
-      "source_url": "https://en.wikishia.net/view/Abu_l-Hasan_Isfahani"
-    },
-    {
-      "name": "Sayyid Abu al-Qasim al-Khoei",
-      "name_ur": "سید ابو القاسم خوئی",
-      "city": "Najaf",
-      "place": "Imam Ali Shrine, Najaf",
-      "detail": "Grand Ayatollah al-Khoei (d. 1413/1992), teacher of many of today's maraji', buried in the Shrine of Imam Ali in Najaf.",
-      "source_name": "Wikipedia",
-      "source_url": "https://en.wikipedia.org/wiki/Abu_al-Qasim_al-Khoei"
-    },
-    {
-      "name": "Sayyid Muhsin al-Hakim",
-      "name_ur": "سید محسن حکیم",
-      "city": "Najaf",
-      "place": "Beside his mosque, Najaf",
-      "detail": "Grand Ayatollah al-Hakim (d. 1390/1970), founder of schools and libraries across Iraq.",
-      "source_name": "Wikipedia",
-      "source_url": "https://en.wikipedia.org/wiki/Muhsin_al-Hakim"
-    },
-    {
-      "name": "Sayyid Muhammad Baqir al-Sadr",
-      "name_ur": "سید محمد باقر صدر",
-      "city": "Najaf",
-      "place": "Wadi-us-Salam Cemetery, Najaf",
-      "detail": "Philosopher and martyr (executed 1400/1980), author of Falsafatuna and Iqtisaduna.",
-      "source_name": "Wikipedia",
-      "source_url": "https://en.wikipedia.org/wiki/Muhammad_Baqir_al-Sadr",
-      "site_id": "wadi-us-salam"
-    },
-    {
-      "name": "Prophets Hud and Salih (a.s.)",
-      "name_ur": "حضرت ہود و صالح علیہما السلام",
-      "city": "Najaf",
-      "place": "Wadi-us-Salam Cemetery, Najaf",
-      "detail": "According to hadith related in the sources, the tombs of the prophets Hud (a.s.) and Salih (a.s.) are situated in Wadi-us-Salam, where a shrine is attributed to them.",
-      "source_name": "WikiShia",
-      "source_url": "https://en.wikishia.net/view/Wadi_l-Salam",
-      "site_id": "wadi-us-salam"
-    },
-    {
-      "name": "Kumayl ibn Ziyad",
-      "name_ur": "کمیل بن زیاد",
-      "city": "Najaf",
-      "place": "His shrine, Hanana district, Najaf",
-      "detail": "The trusted companion of Imam Ali (a.s.), to whom the Imam taught the famous Dua Kumayl.",
-      "source_name": "Wikipedia",
-      "source_url": "https://en.wikipedia.org/wiki/Kumayl_ibn_Ziyad",
-      "site_id": "kumayl-shrine"
-    },
-    {
-      "name": "Habib ibn Muzahir",
-      "name_ur": "حبیب بن مظاہر",
-      "city": "Karbala",
-      "place": "Imam Husayn Shrine — the martyrs' collective grave",
-      "detail": "The elderly companion who rode out to join Imam Husayn (a.s.); he rests in the collective grave of the martyrs of Karbala inside the shrine.",
-      "source_name": "Wikipedia",
-      "source_url": "https://en.wikipedia.org/wiki/Habib_ibn_Muzahir",
-      "site_id": "imam-hussain-shrine"
-    },
-    {
-      "name": "The Martyrs of Karbala (companions of Imam Husayn a.s.)",
-      "name_ur": "شہدائے کربلا",
-      "city": "Karbala",
-      "place": "The collective grave (Ganj-e Shohada), Imam Husayn Shrine",
-      "detail": "The companions and family members who fell on Ashura are buried together in the collective grave within the Imam Husayn Shrine.",
-      "source_name": "Wikipedia",
-      "source_url": "https://en.wikipedia.org/wiki/Habib_ibn_Muzahir",
-      "site_id": "imam-hussain-shrine"
-    },
-    {
-      "name": "Shaykh Yusuf al-Bahrani",
-      "name_ur": "شیخ یوسف بحرانی",
-      "city": "Karbala",
-      "place": "Imam Husayn Shrine, Karbala",
-      "detail": "Author of al-Hada'iq al-Nadira (d. 1186/1772), one of the great fiqh works of the Akhbari tradition.",
-      "source_name": "Wikipedia",
-      "source_url": "https://en.wikipedia.org/wiki/Yusuf_al-Bahrani",
-      "site_id": "imam-hussain-shrine"
-    },
-    {
-      "name": "Al-Wahid al-Behbahani",
-      "name_ur": "وحید بہبہانی",
-      "city": "Karbala",
-      "place": "Imam Husayn Shrine, Karbala",
-      "detail": "Muhammad Baqir al-Behbahani (d. 1205/1791), reviver of the Usuli school, buried in the Holy Shrine of Imam al-Husayn (a.s.).",
-      "source_name": "WikiShia",
-      "source_url": "https://en.wikishia.net/view/Muhammad_Baqir_al-Bihbahani",
-      "site_id": "imam-hussain-shrine"
-    },
-    {
-      "name": "Mirza Muhammad Taqi al-Shirazi",
-      "name_ur": "مرزا محمد تقی شیرازی",
-      "city": "Karbala",
-      "place": "Southern chamber of the Imam Husayn Shrine",
-      "detail": "Leader of the 1920 revolt against the British occupation (d. 1338/1920), buried in the shrine's southern chamber.",
-      "source_name": "WikiShia",
-      "source_url": "https://en.wikishia.net/view/Mirza_Muhammad_Taqi_Shirazi",
-      "site_id": "imam-hussain-shrine"
-    },
-    {
-      "name": "Hurr ibn Yazid al-Riyahi",
-      "name_ur": "حر بن یزید ریاحی",
-      "city": "Karbala",
-      "place": "His shrine, west of Karbala",
-      "detail": "The commander who left Yazid's army on the morning of Ashura and was martyred beside Imam Husayn (a.s.).",
-      "source_name": "WikiShia",
-      "source_url": "https://en.wikishia.net/view/Al-Hurr_b._Yazid_al-Riyahi",
-      "site_id": "maqam-hurr"
-    },
-    {
-      "name": "Aun ibn Abdullah",
-      "name_ur": "عون بن عبداللہ",
-      "city": "Karbala",
-      "place": "His shrine on the Baghdad–Karbala road",
-      "detail": "A descendant of Ja'far al-Tayyar; pilgrims stop at his shrine on the road to Karbala.",
-      "source_name": "Wikipedia",
-      "source_url": "https://en.wikipedia.org/wiki/Awn_ibn_Abd_Allah_ibn_Ja'far",
-      "site_id": "aun-shrine"
-    },
-    {
-      "name": "Muslim ibn Aqil",
-      "name_ur": "مسلم بن عقیل",
-      "city": "Kufa",
-      "place": "Great Mosque of Kufa",
-      "detail": "The envoy of Imam Husayn (a.s.) to Kufa, martyred on 9 Dhu al-Hijja 60 AH; his shrine adjoins the Great Mosque.",
-      "source_name": "Wikipedia",
-      "source_url": "https://en.wikipedia.org/wiki/Muslim_ibn_Aqil",
-      "site_id": "kufa-mosque"
-    },
-    {
-      "name": "Hani ibn Urwa",
-      "name_ur": "ہانی بن عروہ",
-      "city": "Kufa",
-      "place": "His shrine beside Dar al-Imara, Kufa",
-      "detail": "The Kufan elder who sheltered Muslim ibn Aqil and was martyred with him; buried near the Dar al-Imara (governor's palace).",
-      "source_name": "WikiShia",
-      "source_url": "https://en.wikishia.net/view/Hani_b._'Urwa",
-      "site_id": "kufa-mosque"
-    },
-    {
-      "name": "Al-Mukhtar al-Thaqafi",
-      "name_ur": "مختار ثقفی",
-      "city": "Kufa",
-      "place": "Beside the Great Mosque of Kufa",
-      "detail": "Who rose to avenge the martyrs of Karbala (d. 67/687); buried beside the Mosque of Kufa.",
-      "source_name": "WikiShia",
-      "source_url": "https://en.wikishia.net/view/Al-Mukhtar_b._Abi_'Ubayd_al-Thaqafi",
-      "site_id": "kufa-mosque"
-    },
-    {
-      "name": "Maytham al-Tammar",
-      "name_ur": "میثم تمار",
-      "city": "Kufa",
-      "place": "His shrine, Kufa",
-      "detail": "The date-seller and loyal companion of Imam Ali (a.s.), executed in Kufa shortly before Karbala.",
-      "source_name": "Wikipedia",
-      "source_url": "https://en.wikipedia.org/wiki/Maytham_al-Tammar",
-      "site_id": "maytham-shrine"
-    },
-    {
-      "name": "Al-Shaykh al-Mufid",
-      "name_ur": "شیخ مفید",
-      "city": "Baghdad",
-      "place": "Inside the Kadhimayn Shrine",
-      "detail": "Muhammad ibn al-Nu'man, 'the Teacher' (d. 413/1022), buried in the holy shrine of Kazimayn near his teacher Ibn Qulawayh.",
-      "source_name": "WikiShia",
-      "source_url": "https://en.wikishia.net/view/Al-Shaykh_al-Mufid",
-      "site_id": "sheikh-mufid"
-    },
-    {
-      "name": "Ibn Qulawayh al-Qummi",
-      "name_ur": "ابن قولویہ قمی",
-      "city": "Baghdad",
-      "place": "Inside the Kadhimayn Shrine, beside al-Shaykh al-Mufid",
-      "detail": "Author of Kamil al-Ziyarat (d. 368/978) — the classical book on the ziyarat of the Imams.",
-      "source_name": "WikiShia",
-      "source_url": "https://en.wikishia.net/view/Ibn_Qulawayh_al-Qummi",
-      "site_id": "kadhimayn-shrine"
-    },
-    {
-      "name": "Al-Sharif al-Murtada",
-      "name_ur": "سید مرتضیٰ علم الہدیٰ",
-      "city": "Baghdad",
-      "place": "Sharif al-Murtada Shrine, Kadhimiya, Baghdad",
-      "detail": "'Alam al-Huda (d. 436/1044), elder brother of al-Sharif al-Radi, compiler of Nahj al-Balagha.",
-      "source_name": "Wikipedia",
-      "source_url": "https://en.wikipedia.org/wiki/Al-Sharif_al-Murtada",
-      "site_id": "kadhimayn-shrine"
-    },
-    {
-      "name": "Khwaja Nasir al-Din al-Tusi",
-      "name_ur": "خواجہ نصیر الدین طوسی",
-      "city": "Baghdad",
-      "place": "Kadhimayn Shrine, Kadhimiya",
-      "detail": "The polymath of Maragha observatory fame (d. 672/1274), buried in the shrine of Kazimayn as he had wished.",
-      "source_name": "WikiShia",
-      "source_url": "https://en.wikishia.net/view/Khwaja_Nasir_al-Din_al-Tusi",
-      "site_id": "kadhimayn-shrine"
-    },
-    {
-      "name": "Muhammad ibn Ya'qub al-Kulayni",
-      "name_ur": "محمد بن یعقوب کلینی",
-      "city": "Baghdad",
-      "place": "Baghdad, at Bab al-Kufa",
-      "detail": "Compiler of al-Kafi (d. 329/941), the first of the Four Books of hadith; he died in Baghdad and was buried at Bab Kufa.",
-      "source_name": "WikiShia",
-      "source_url": "https://en.wikishia.net/view/Muhammad_b._Ya'qub_al-Kulayni"
-    },
-    {
-      "name": "Salman al-Farsi",
-      "name_ur": "سلمان فارسی",
-      "city": "Baghdad",
-      "place": "His shrine at Salman Pak, Mada'in",
-      "detail": "The beloved companion of the Prophet (s), governor of Mada'in, resting at Salman Pak south of Baghdad.",
-      "source_name": "Wikipedia",
-      "source_url": "https://en.wikipedia.org/wiki/Salman_al-Farsi",
-      "site_id": "salman-farsi"
-    },
-    {
-      "name": "Hudhayfa ibn al-Yaman",
-      "name_ur": "حذیفہ بن یمان",
-      "city": "Baghdad",
-      "place": "His shrine at Salman Pak, Mada'in",
-      "detail": "Companion of the Prophet (s) and keeper of his secrets, visited together with Salman al-Farsi at Mada'in.",
-      "source_name": "Wikipedia",
-      "source_url": "https://en.wikipedia.org/wiki/Hudhayfa_ibn_al-Yaman",
-      "site_id": "hudhaifa-shrine"
-    },
-    {
-      "name": "Narjis Khatun",
-      "name_ur": "نرجس خاتون",
-      "city": "Samarra",
-      "place": "Inside the al-Askari Shrine, Samarra",
-      "detail": "Mother of Imam al-Mahdi (a.t.f.s.); her tomb is believed to be located in the al-Askari shrine.",
-      "source_name": "Wikipedia",
-      "source_url": "https://en.wikipedia.org/wiki/Narjis",
-      "site_id": "askari-shrine"
-    },
-    {
-      "name": "Hakima Khatun",
-      "name_ur": "حکیمہ خاتون",
-      "city": "Samarra",
-      "place": "Inside the al-Askari Shrine, Samarra",
-      "detail": "Daughter of Imam al-Jawad (a.s.) and aunt of Imam al-Askari (a.s.), narrator of the birth of Imam al-Mahdi (a.t.f.s.).",
-      "source_name": "Wikipedia",
-      "source_url": "https://en.wikipedia.org/wiki/Hakima_Khatun",
-      "site_id": "askari-shrine"
-    },
-    {
-      "name": "Awn and Muhammad — sons of Lady Zaynab (s.a.)",
-      "name_ur": "عون و محمد — فرزندانِ بی بی زینب سلام اللہ علیہا",
-      "city": "Karbala",
-      "place": "With the martyrs of Karbala, at the foot of Imam al-Husayn's (a.s.) grave inside his shrine",
-      "detail": "The two sons of Lady Zaynab (s.a.) and Abdullah ibn Ja'far were martyred at Karbala on Ashura. They have no separate shrine: like almost all the martyrs of Karbala (apart from Hazrat Abbas, Hurr and Habib, who have their own shrines), they rest in the martyrs' burial place beside Imam al-Husayn's grave — so they are honoured at his shrine, which is already pinned on the map, rather than at a separate pin.",
-      "source_name": "Guides to the Imam Husayn Shrine / WikiHussain — martyrs of Karbala",
-      "source_url": "https://en.wikipedia.org/wiki/Imam_Hussein_Shrine"
-    },
-    {
-      "name": "Sayyid Muhammad ibn Imam Ali al-Hadi (a.s.)",
-      "name_ur": "سید محمد بن امام علی الہادی علیہ السلام",
-      "city": "Balad",
-      "place": "His shrine in Balad, on the Kadhimiya–Samarra road",
-      "detail": "The eldest son of Imam Ali al-Hadi (a.s.), known as Sab' al-Dujayl ('the Lion of Dujayl'). His shrine is famous for vows (nadhr): devotees bring sheep — the small livestock of the mannat tradition — which are slaughtered at the shrine's own slaughter-place and the food shared with pilgrims, a custom described in his biography. Shown here without a map pin on purpose: published sources disagree about the shrine's exact coordinates by several kilometres, and this app does not pin what it cannot verify.",
-      "source_name": "Al-Kafeel shrine network / biography of Sayyid Muhammad",
-      "source_url": "https://alkafeel.net/news/index?id=12481&lang=en"
-    }
-  ]
+ "about": "Burial places verified one by one against the named source for every entry; figures whose burial place could not be verified were left out.",
+ "entries": [
+  {
+   "name": "Shaykh al-Tusi",
+   "name_ur": "شیخ طوسی",
+   "city": "Najaf",
+   "place": "Mosque of Shaykh al-Tusi, beside the Imam Ali Shrine",
+   "detail": "Founder of the Najaf seminary tradition (d. 460/1067). Per his will he was buried in his own house beside the shrine, which became his mosque.",
+   "source_name": "WikiShia",
+   "source_url": "https://en.wikishia.net/view/Mosque_of_al-Shaykh_al-Tusi"
+  },
+  {
+   "name": "Sayyid Muhammad Mahdi Bahr al-Ulum",
+   "name_ur": "سید محمد مہدی بحر العلوم",
+   "city": "Najaf",
+   "place": "Beside the tomb of Shaykh al-Tusi, Najaf",
+   "detail": "The great scholar known as Bahr al-Ulum, 'Ocean of Knowledge' (d. 1212/1797), buried next to Shaykh al-Tusi, as are some of his descendants.",
+   "source_name": "WikiShia",
+   "source_url": "https://en.wikishia.net/view/Najaf"
+  },
+  {
+   "name": "Shaykh Abbas Qummi",
+   "name_ur": "شیخ عباس قمی",
+   "city": "Najaf",
+   "place": "Najaf, beside his teacher Mirza Husayn Nuri",
+   "detail": "Author of Mafatih al-Jinan, the book of duas carried by almost every pilgrim (d. 1359/1941).",
+   "source_name": "WikiShia",
+   "source_url": "https://en.wikishia.net/view/Najaf"
+  },
+  {
+   "name": "Al-Allama al-Hilli",
+   "name_ur": "علامہ حلی",
+   "city": "Najaf",
+   "place": "Inside the Imam Ali Shrine",
+   "detail": "The towering jurist of Hilla (d. 726/1325); he is buried in the shrine of Imam Ali (a.s.) in Najaf.",
+   "source_name": "WikiShia",
+   "source_url": "https://en.wikishia.net/view/Al-'Allama_al-Hilli"
+  },
+  {
+   "name": "Muqaddas Ardabili",
+   "name_ur": "مقدس اردبیلی",
+   "city": "Najaf",
+   "place": "Imam Ali Shrine, Najaf",
+   "detail": "Ahmad ibn Muhammad al-Ardabili (d. 993/1585), famous for his piety and his commentary on the Qur'an.",
+   "source_name": "Wikipedia",
+   "source_url": "https://en.wikipedia.org/wiki/Ahmad_ibn_Muhammad_Ardabili"
+  },
+  {
+   "name": "Shaykh Murtada al-Ansari",
+   "name_ur": "شیخ مرتضیٰ انصاری",
+   "city": "Najaf",
+   "place": "Imam Ali Shrine, Najaf",
+   "detail": "The 'Seal of the Jurists' (d. 1281/1864), author of al-Makasib and al-Rasa'il, teacher of a generation of scholars.",
+   "source_name": "Wikipedia",
+   "source_url": "https://en.wikipedia.org/wiki/Morteza_Ansari"
+  },
+  {
+   "name": "Akhund Muhammad Kazim Khurasani",
+   "name_ur": "آخوند محمد کاظم خراسانی",
+   "city": "Najaf",
+   "place": "Imam Ali Shrine, Najaf",
+   "detail": "Author of Kifayat al-Usul (d. 1329/1911), the standard advanced text of usul al-fiqh.",
+   "source_name": "Wikipedia",
+   "source_url": "https://en.wikipedia.org/wiki/Muhammad_Kazim_Khurasani"
+  },
+  {
+   "name": "Mirza Muhammad Husayn Na'ini",
+   "name_ur": "مرزا محمد حسین نائینی",
+   "city": "Najaf",
+   "place": "A room of the courtyard of the Imam Ali Shrine",
+   "detail": "The great usul scholar (d. 1355/1936), buried in one of the rooms surrounding the courtyard of the holy shrine.",
+   "source_name": "WikiShia",
+   "source_url": "https://en.wikishia.net/view/Muhammad_Husayn_Na'ini"
+  },
+  {
+   "name": "Sayyid Abu al-Hasan al-Isfahani",
+   "name_ur": "سید ابو الحسن اصفہانی",
+   "city": "Najaf",
+   "place": "A room of the courtyard of the Imam Ali Shrine",
+   "detail": "Marja' of his age (d. 1365/1946); after a vast funeral he was buried in a room of the shrine courtyard.",
+   "source_name": "WikiShia",
+   "source_url": "https://en.wikishia.net/view/Abu_l-Hasan_Isfahani"
+  },
+  {
+   "name": "Sayyid Abu al-Qasim al-Khoei",
+   "name_ur": "سید ابو القاسم خوئی",
+   "city": "Najaf",
+   "place": "Imam Ali Shrine, Najaf",
+   "detail": "Grand Ayatollah al-Khoei (d. 1413/1992), teacher of many of today's maraji', buried in the Shrine of Imam Ali in Najaf.",
+   "source_name": "Wikipedia",
+   "source_url": "https://en.wikipedia.org/wiki/Abu_al-Qasim_al-Khoei"
+  },
+  {
+   "name": "Sayyid Muhsin al-Hakim",
+   "name_ur": "سید محسن حکیم",
+   "city": "Najaf",
+   "place": "Beside his mosque, Najaf",
+   "detail": "Grand Ayatollah al-Hakim (d. 1390/1970), founder of schools and libraries across Iraq.",
+   "source_name": "Wikipedia",
+   "source_url": "https://en.wikipedia.org/wiki/Muhsin_al-Hakim"
+  },
+  {
+   "name": "Sayyid Muhammad Baqir al-Sadr",
+   "name_ur": "سید محمد باقر صدر",
+   "city": "Najaf",
+   "place": "Wadi-us-Salam Cemetery, Najaf",
+   "detail": "Philosopher and martyr (executed 1400/1980), author of Falsafatuna and Iqtisaduna.",
+   "source_name": "Wikipedia",
+   "source_url": "https://en.wikipedia.org/wiki/Muhammad_Baqir_al-Sadr",
+   "site_id": "wadi-us-salam"
+  },
+  {
+   "name": "Prophets Hud and Salih (a.s.)",
+   "name_ur": "حضرت ہود و صالح علیہما السلام",
+   "city": "Najaf",
+   "place": "Wadi-us-Salam Cemetery, Najaf",
+   "detail": "According to hadith related in the sources, the tombs of the prophets Hud (a.s.) and Salih (a.s.) are situated in Wadi-us-Salam, where a shrine is attributed to them.",
+   "source_name": "WikiShia",
+   "source_url": "https://en.wikishia.net/view/Wadi_l-Salam",
+   "site_id": "wadi-us-salam"
+  },
+  {
+   "name": "Kumayl ibn Ziyad",
+   "name_ur": "کمیل بن زیاد",
+   "city": "Najaf",
+   "place": "His shrine, Hanana district, Najaf",
+   "detail": "The trusted companion of Imam Ali (a.s.), to whom the Imam taught the famous Dua Kumayl.",
+   "source_name": "Wikipedia",
+   "source_url": "https://en.wikipedia.org/wiki/Kumayl_ibn_Ziyad",
+   "site_id": "kumayl-shrine"
+  },
+  {
+   "name": "Habib ibn Muzahir",
+   "name_ur": "حبیب بن مظاہر",
+   "city": "Karbala",
+   "place": "Imam Husayn Shrine — the martyrs' collective grave",
+   "detail": "The elderly companion who rode out to join Imam Husayn (a.s.); he rests in the collective grave of the martyrs of Karbala inside the shrine.",
+   "source_name": "Wikipedia",
+   "source_url": "https://en.wikipedia.org/wiki/Habib_ibn_Muzahir",
+   "site_id": "imam-hussain-shrine"
+  },
+  {
+   "name": "The Martyrs of Karbala (companions of Imam Husayn a.s.)",
+   "name_ur": "شہدائے کربلا",
+   "city": "Karbala",
+   "place": "The collective grave (Ganj-e Shohada), Imam Husayn Shrine",
+   "detail": "The companions and family members who fell on Ashura are buried together in the collective grave within the Imam Husayn Shrine.",
+   "source_name": "Wikipedia",
+   "source_url": "https://en.wikipedia.org/wiki/Habib_ibn_Muzahir",
+   "site_id": "imam-hussain-shrine"
+  },
+  {
+   "name": "Shaykh Yusuf al-Bahrani",
+   "name_ur": "شیخ یوسف بحرانی",
+   "city": "Karbala",
+   "place": "Imam Husayn Shrine, Karbala",
+   "detail": "Author of al-Hada'iq al-Nadira (d. 1186/1772), one of the great fiqh works of the Akhbari tradition.",
+   "source_name": "Wikipedia",
+   "source_url": "https://en.wikipedia.org/wiki/Yusuf_al-Bahrani",
+   "site_id": "imam-hussain-shrine"
+  },
+  {
+   "name": "Al-Wahid al-Behbahani",
+   "name_ur": "وحید بہبہانی",
+   "city": "Karbala",
+   "place": "Imam Husayn Shrine, Karbala",
+   "detail": "Muhammad Baqir al-Behbahani (d. 1205/1791), reviver of the Usuli school, buried in the Holy Shrine of Imam al-Husayn (a.s.).",
+   "source_name": "WikiShia",
+   "source_url": "https://en.wikishia.net/view/Muhammad_Baqir_al-Bihbahani",
+   "site_id": "imam-hussain-shrine"
+  },
+  {
+   "name": "Mirza Muhammad Taqi al-Shirazi",
+   "name_ur": "مرزا محمد تقی شیرازی",
+   "city": "Karbala",
+   "place": "Southern chamber of the Imam Husayn Shrine",
+   "detail": "Leader of the 1920 revolt against the British occupation (d. 1338/1920), buried in the shrine's southern chamber.",
+   "source_name": "WikiShia",
+   "source_url": "https://en.wikishia.net/view/Mirza_Muhammad_Taqi_Shirazi",
+   "site_id": "imam-hussain-shrine"
+  },
+  {
+   "name": "Hurr ibn Yazid al-Riyahi",
+   "name_ur": "حر بن یزید ریاحی",
+   "city": "Karbala",
+   "place": "His shrine, west of Karbala",
+   "detail": "The commander who left Yazid's army on the morning of Ashura and was martyred beside Imam Husayn (a.s.).",
+   "source_name": "WikiShia",
+   "source_url": "https://en.wikishia.net/view/Al-Hurr_b._Yazid_al-Riyahi",
+   "site_id": "maqam-hurr"
+  },
+  {
+   "name": "Aun ibn Abdullah",
+   "name_ur": "عون بن عبداللہ",
+   "city": "Karbala",
+   "place": "His shrine on the Baghdad–Karbala road",
+   "detail": "A descendant of Ja'far al-Tayyar; pilgrims stop at his shrine on the road to Karbala.",
+   "source_name": "Wikipedia",
+   "source_url": "https://en.wikipedia.org/wiki/Awn_ibn_Abd_Allah_ibn_Ja'far",
+   "site_id": "aun-shrine"
+  },
+  {
+   "name": "Muslim ibn Aqil",
+   "name_ur": "مسلم بن عقیل",
+   "city": "Kufa",
+   "place": "Great Mosque of Kufa",
+   "detail": "The envoy of Imam Husayn (a.s.) to Kufa, martyred on 9 Dhu al-Hijja 60 AH; his shrine adjoins the Great Mosque.",
+   "source_name": "Wikipedia",
+   "source_url": "https://en.wikipedia.org/wiki/Muslim_ibn_Aqil",
+   "site_id": "kufa-mosque"
+  },
+  {
+   "name": "Hani ibn Urwa",
+   "name_ur": "ہانی بن عروہ",
+   "city": "Kufa",
+   "place": "His shrine beside Dar al-Imara, Kufa",
+   "detail": "The Kufan elder who sheltered Muslim ibn Aqil and was martyred with him; buried near the Dar al-Imara (governor's palace).",
+   "source_name": "WikiShia",
+   "source_url": "https://en.wikishia.net/view/Hani_b._'Urwa",
+   "site_id": "kufa-mosque"
+  },
+  {
+   "name": "Al-Mukhtar al-Thaqafi",
+   "name_ur": "مختار ثقفی",
+   "city": "Kufa",
+   "place": "Beside the Great Mosque of Kufa",
+   "detail": "Who rose to avenge the martyrs of Karbala (d. 67/687); buried beside the Mosque of Kufa.",
+   "source_name": "WikiShia",
+   "source_url": "https://en.wikishia.net/view/Al-Mukhtar_b._Abi_'Ubayd_al-Thaqafi",
+   "site_id": "kufa-mosque"
+  },
+  {
+   "name": "Maytham al-Tammar",
+   "name_ur": "میثم تمار",
+   "city": "Kufa",
+   "place": "His shrine, Kufa",
+   "detail": "The date-seller and loyal companion of Imam Ali (a.s.), executed in Kufa shortly before Karbala.",
+   "source_name": "Wikipedia",
+   "source_url": "https://en.wikipedia.org/wiki/Maytham_al-Tammar",
+   "site_id": "maytham-shrine"
+  },
+  {
+   "name": "Al-Shaykh al-Mufid",
+   "name_ur": "شیخ مفید",
+   "city": "Baghdad",
+   "place": "Inside the Kadhimayn Shrine",
+   "detail": "Muhammad ibn al-Nu'man, 'the Teacher' (d. 413/1022), buried in the holy shrine of Kazimayn near his teacher Ibn Qulawayh.",
+   "source_name": "WikiShia",
+   "source_url": "https://en.wikishia.net/view/Al-Shaykh_al-Mufid",
+   "site_id": "sheikh-mufid"
+  },
+  {
+   "name": "Ibn Qulawayh al-Qummi",
+   "name_ur": "ابن قولویہ قمی",
+   "city": "Baghdad",
+   "place": "Inside the Kadhimayn Shrine, beside al-Shaykh al-Mufid",
+   "detail": "Author of Kamil al-Ziyarat (d. 368/978) — the classical book on the ziyarat of the Imams.",
+   "source_name": "WikiShia",
+   "source_url": "https://en.wikishia.net/view/Ibn_Qulawayh_al-Qummi",
+   "site_id": "kadhimayn-shrine"
+  },
+  {
+   "name": "Al-Sharif al-Murtada",
+   "name_ur": "سید مرتضیٰ علم الہدیٰ",
+   "city": "Baghdad",
+   "place": "Sharif al-Murtada Shrine, Kadhimiya, Baghdad",
+   "detail": "'Alam al-Huda (d. 436/1044), elder brother of al-Sharif al-Radi, compiler of Nahj al-Balagha.",
+   "source_name": "Wikipedia",
+   "source_url": "https://en.wikipedia.org/wiki/Al-Sharif_al-Murtada",
+   "site_id": "kadhimayn-shrine"
+  },
+  {
+   "name": "Khwaja Nasir al-Din al-Tusi",
+   "name_ur": "خواجہ نصیر الدین طوسی",
+   "city": "Baghdad",
+   "place": "Kadhimayn Shrine, Kadhimiya",
+   "detail": "The polymath of Maragha observatory fame (d. 672/1274), buried in the shrine of Kazimayn as he had wished.",
+   "source_name": "WikiShia",
+   "source_url": "https://en.wikishia.net/view/Khwaja_Nasir_al-Din_al-Tusi",
+   "site_id": "kadhimayn-shrine"
+  },
+  {
+   "name": "Muhammad ibn Ya'qub al-Kulayni",
+   "name_ur": "محمد بن یعقوب کلینی",
+   "city": "Baghdad",
+   "place": "Baghdad, at Bab al-Kufa",
+   "detail": "Compiler of al-Kafi (d. 329/941), the first of the Four Books of hadith; he died in Baghdad and was buried at Bab Kufa.",
+   "source_name": "WikiShia",
+   "source_url": "https://en.wikishia.net/view/Muhammad_b._Ya'qub_al-Kulayni"
+  },
+  {
+   "name": "Salman al-Farsi",
+   "name_ur": "سلمان فارسی",
+   "city": "Baghdad",
+   "place": "His shrine at Salman Pak, Mada'in",
+   "detail": "The beloved companion of the Prophet (s), governor of Mada'in, resting at Salman Pak south of Baghdad.",
+   "source_name": "Wikipedia",
+   "source_url": "https://en.wikipedia.org/wiki/Salman_al-Farsi",
+   "site_id": "salman-farsi"
+  },
+  {
+   "name": "Hudhayfa ibn al-Yaman",
+   "name_ur": "حذیفہ بن یمان",
+   "city": "Baghdad",
+   "place": "His shrine at Salman Pak, Mada'in",
+   "detail": "Companion of the Prophet (s) and keeper of his secrets, visited together with Salman al-Farsi at Mada'in.",
+   "source_name": "Wikipedia",
+   "source_url": "https://en.wikipedia.org/wiki/Hudhayfa_ibn_al-Yaman",
+   "site_id": "hudhaifa-shrine"
+  },
+  {
+   "name": "Narjis Khatun",
+   "name_ur": "نرجس خاتون",
+   "city": "Samarra",
+   "place": "Inside the al-Askari Shrine, Samarra",
+   "detail": "Mother of Imam al-Mahdi (a.t.f.s.); her tomb is believed to be located in the al-Askari shrine.",
+   "source_name": "Wikipedia",
+   "source_url": "https://en.wikipedia.org/wiki/Narjis",
+   "site_id": "askari-shrine"
+  },
+  {
+   "name": "Hakima Khatun",
+   "name_ur": "حکیمہ خاتون",
+   "city": "Samarra",
+   "place": "Inside the al-Askari Shrine, Samarra",
+   "detail": "Daughter of Imam al-Jawad (a.s.) and aunt of Imam al-Askari (a.s.), narrator of the birth of Imam al-Mahdi (a.t.f.s.).",
+   "source_name": "Wikipedia",
+   "source_url": "https://en.wikipedia.org/wiki/Hakima_Khatun",
+   "site_id": "askari-shrine"
+  },
+  {
+   "name": "Awn and Muhammad — sons of Lady Zaynab (s.a.)",
+   "name_ur": "عون و محمد — فرزندانِ بی بی زینب سلام اللہ علیہا",
+   "city": "Karbala",
+   "place": "With the martyrs of Karbala, at the foot of Imam al-Husayn's (a.s.) grave inside his shrine",
+   "detail": "The two sons of Lady Zaynab (s.a.) and Abdullah ibn Ja'far were martyred at Karbala on Ashura. They have no separate shrine: like almost all the martyrs of Karbala (apart from Hazrat Abbas, Hurr and Habib, who have their own shrines), they rest in the martyrs' burial place beside Imam al-Husayn's grave — so they are honoured at his shrine, which is already pinned on the map, rather than at a separate pin.",
+   "source_name": "Guides to the Imam Husayn Shrine / WikiHussain — martyrs of Karbala",
+   "source_url": "https://en.wikipedia.org/wiki/Imam_Hussein_Shrine"
+  },
+  {
+   "name": "Sayyid Muhammad ibn Imam Ali al-Hadi (a.s.)",
+   "name_ur": "سید محمد بن امام علی الہادی علیہ السلام",
+   "city": "Balad",
+   "place": "His shrine in Balad, on the Kadhimiya–Samarra road",
+   "detail": "The eldest son of Imam Ali al-Hadi (a.s.), known as Sab' al-Dujayl ('the Lion of Dujayl'). His shrine is famous for vows (nadhr): devotees bring sheep — the small livestock of the mannat tradition — which are slaughtered at the shrine's own slaughter-place and the food shared with pilgrims, a custom described in his biography. Shown here without a map pin on purpose: published sources disagree about the shrine's exact coordinates by several kilometres, and this app does not pin what it cannot verify.",
+   "source_name": "Al-Kafeel shrine network / biography of Sayyid Muhammad",
+   "source_url": "https://alkafeel.net/news/index?id=12481&lang=en"
+  },
+  {
+   "name": "Fatimah al-Masumeh (a.s.)",
+   "name_ur": "حضرت فاطمہ معصومہ علیہا السلام",
+   "city": "Qom",
+   "place": "Her shrine in the centre of Qom",
+   "detail": "Daughter of Imam Musa al-Kazim (a.s.) and sister of Imam Reza (a.s.). She set out from Medina to join her brother in Khurasan, fell ill on the way and died in Qom in 201/816. Buried where her golden-domed shrine now stands; three daughters of Imam Muhammad al-Taqi (a.s.) also rest within the shrine.",
+   "source_name": "Wikipedia — Fatima Masumeh Shrine",
+   "source_url": "https://en.wikipedia.org/wiki/Fatima_Masumeh_Shrine",
+   "site_id": "fatima-masumeh-shrine"
+  },
+  {
+   "name": "Abd al-Azim al-Hasani",
+   "name_ur": "عبدالعظیم حسنی رحمۃ اللہ علیہ",
+   "city": "Rey",
+   "place": "The Shah Abdol-Azim complex, Rey",
+   "detail": "A fifth-generation descendant of Imam Hasan (a.s.) and a companion of Imam Muhammad al-Taqi (a.s.) and Imam Ali al-Hadi (a.s.). Fleeing Abbasid persecution he settled in Rey, where he died in the 3rd/9th century and was buried under a tree in a garden — the seed of today's great shrine complex.",
+   "source_name": "Wikipedia — Shah Abdol-Azim Shrine",
+   "source_url": "https://en.wikipedia.org/wiki/Shah_Abdol-Azim_Shrine",
+   "site_id": "shah-abdol-azim"
+  },
+  {
+   "name": "Imamzadeh Hamzah ibn Musa al-Kazim (a.s.)",
+   "name_ur": "امامزادہ حمزہ بن موسیٰ کاظم علیہ السلام",
+   "city": "Rey",
+   "place": "Within the Shah Abdol-Azim complex, Rey",
+   "detail": "A son of Imam Musa al-Kazim (a.s.) and brother of Imam Reza (a.s.). By the accounts, Abd al-Azim al-Hasani was devoted to him and asked to be buried beside him, so their shrines stand together in one complex in Rey.",
+   "source_name": "Wikipedia — Shah Abdol-Azim Shrine",
+   "source_url": "https://en.wikipedia.org/wiki/Shah_Abdol-Azim_Shrine",
+   "site_id": "shah-abdol-azim"
+  },
+  {
+   "name": "Imamzadeh Tahir ibn Zayn al-Abidin (a.s.)",
+   "name_ur": "امامزادہ طاہر بن زین العابدین علیہ السلام",
+   "city": "Rey",
+   "place": "Within the Shah Abdol-Azim complex, Rey",
+   "detail": "A son of Imam Zayn al-Abidin (a.s.). His mausoleum stands in the same complex as those of Abd al-Azim al-Hasani and Imamzadeh Hamzah, in Rey south of Tehran.",
+   "source_name": "Wikipedia — Shah Abdol-Azim Shrine",
+   "source_url": "https://en.wikipedia.org/wiki/Shah_Abdol-Azim_Shrine",
+   "site_id": "shah-abdol-azim"
+  }
+ ]
 }

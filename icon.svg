@@ -1,20 +1,20 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Ziyarat Maps icon">
   <!-- Original mark: emerald tile, golden dome and crescent over a map pin -->
-  <rect width="512" height="512" rx="108" fill="#0b3d2e"/>
+  <rect width="512" height="512" rx="108" fill="#0C3B2E"/>
   <rect x="14" y="14" width="484" height="484" rx="96" fill="none" stroke="#c9a227" stroke-width="6" opacity="0.55"/>
   <!-- crescent finial -->
-  <path d="M256 52c7 13 19 21 33 22-6 8-16 13-26 13s-20-5-26-13c14-1 26-9 33-22z" fill="#e6c65a" transform="translate(-14 0)"/>
-  <circle cx="256" cy="98" r="7" fill="#e6c65a"/>
-  <rect x="252" y="104" width="8" height="20" fill="#e6c65a"/>
+  <path d="M256 52c7 13 19 21 33 22-6 8-16 13-26 13s-20-5-26-13c14-1 26-9 33-22z" fill="#D9BE62" transform="translate(-14 0)"/>
+  <circle cx="256" cy="98" r="7" fill="#D9BE62"/>
+  <rect x="252" y="104" width="8" height="20" fill="#D9BE62"/>
   <!-- dome -->
   <path d="M116 268c0-74 62-118 140-118s140 44 140 118v14H116v-14z" fill="#c9a227"/>
-  <path d="M116 268c0-74 62-118 140-118 12 0 24 1.5 35 4.4C243 168 208 208 208 268v14h-92v-14z" fill="#e6c65a" opacity="0.65"/>
+  <path d="M116 268c0-74 62-118 140-118 12 0 24 1.5 35 4.4C243 168 208 208 208 268v14h-92v-14z" fill="#D9BE62" opacity="0.65"/>
   <!-- drum and base -->
-  <rect x="132" y="282" width="248" height="30" rx="6" fill="#0e5240"/>
+  <rect x="132" y="282" width="248" height="30" rx="6" fill="#175243"/>
   <rect x="112" y="312" width="288" height="16" rx="6" fill="#c9a227"/>
   <!-- arched doorway -->
-  <path d="M232 312v-34a24 24 0 0 1 48 0v34z" fill="#0b3d2e"/>
+  <path d="M232 312v-34a24 24 0 0 1 48 0v34z" fill="#0C3B2E"/>
   <!-- map pin below -->
-  <path d="M256 452c-34-27-50-46-50-65a50 50 0 0 1 100 0c0 19-16 38-50 65z" fill="#e6c65a"/>
-  <circle cx="256" cy="386" r="19" fill="#0b3d2e"/>
+  <path d="M256 452c-34-27-50-46-50-65a50 50 0 0 1 100 0c0 19-16 38-50 65z" fill="#D9BE62"/>
+  <circle cx="256" cy="386" r="19" fill="#0C3B2E"/>
 </svg>
